@@ -1,0 +1,171 @@
+openapi: 3.1.0
+x-stoplight:
+  id: 91a4ao3uk9mo2
+info:
+  title: Import export Overview
+  version: '0.1'
+  description: |-
+    # Overview import export api documentation
+
+    The HTTP status codes returned by the endpoints follow these rules:
+    - If the flow is correct, returns positive response code
+    - If the flow is incorrect, returns negative response code 
+    - If the flow breaks for some reason (DB connection, malformed input, etc..), returns negative response
+  contact:
+    email: internal-dev-team@icadsistemi.com
+    name: Dev team internal
+servers:
+  - url: 'https://mxp-import-export-ov.dev.icadsistemi.com/v1'
+paths:
+  /export/fuelstations/circuits:
+    get:
+      summary: Get fuelstations circuits
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  x-stoplight:
+                    id: qpkjieelktla6
+                  type: object
+                  properties:
+                    fuelstation_name:
+                      type: string
+                      x-stoplight:
+                        id: fggaxgd57gj57
+                    iscode:
+                      type: string
+                      x-stoplight:
+                        id: c99cnlx7uod95
+                    supplier_name:
+                      type: string
+                      x-stoplight:
+                        id: sjac0mstt9nqc
+              examples:
+                Example 1:
+                  value:
+                    - fuelstation_name: string
+                      iscode: string
+                      supplier_name: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable Entity (WebDAV)
+        '429':
+          description: Too Many Requests
+        '500':
+          description: Internal Server Error
+      operationId: get-fuelstations-circuits
+      description: Used to get one or more fuelstations circuit
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: card_circuit
+          required: true
+      tags:
+        - Get fuelstations circuits
+  /export/supplies/payments/circuits:
+    get:
+      summary: Get circuits payments supplies
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  x-stoplight:
+                    id: 6rz6q7a7rvzpu
+                  type: object
+                  properties:
+                    fuelstation_name:
+                      type: string
+                      x-stoplight:
+                        id: cz3wsnszjc6ke
+                    iscode:
+                      type: string
+                      x-stoplight:
+                        id: 42a1a3p1si83w
+                    supplier_name:
+                      type: string
+                      x-stoplight:
+                        id: 7gmtuucyzixm4
+                    datetime:
+                      type: string
+                      x-stoplight:
+                        id: w7l9wlxthz8t4
+                      description: date time format in local time
+                    card_name:
+                      type: string
+                      x-stoplight:
+                        id: 858hju9eoym6u
+                    payment_mode:
+                      type: string
+                      x-stoplight:
+                        id: 1fhvtm9t0dm34
+                    amount:
+                      type: number
+                      x-stoplight:
+                        id: jr1wu7zqgwwvi
+                  required:
+                    - fuelstation_name
+                    - iscode
+                    - supplier_name
+                    - datetime
+                    - card_name
+                    - payment_mode
+                    - amount
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable Entity (WebDAV)
+        '429':
+          description: Too Many Requests
+        '500':
+          description: Internal Server Error
+      operationId: get-circuits-payments-supplies
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: card_circuit
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: start_datetime
+          required: true
+          description: date time format unix time
+        - schema:
+            type: string
+            format: date-time
+          in: query
+          name: end_datetime
+          required: true
+          description: date time format unix time
+        - schema:
+            type: string
+          in: query
+          name: is_updated_payments
+          description: optionals. if true return list of circuits payments supplies updated
+      description: 'get circuits payments supplies'
+      tags:
+        - Get circuits payments supplies
+components:
+  schemas: {}
+  securitySchemes: {}
+tags:
+  - name: import export
