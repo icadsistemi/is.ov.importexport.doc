@@ -6,7 +6,7 @@ on:
 
 jobs:
   api-doc-deploy:
-    name: Deploy SN Import Export API doc on Bump
+    name: Deploy OV Import Export API doc on Bump
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
