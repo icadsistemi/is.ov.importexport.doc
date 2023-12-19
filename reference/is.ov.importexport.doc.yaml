@@ -68,6 +68,8 @@ paths:
       operationId: get-fuelstations-circuits
       description: Used to get all enabled fuelstations circuits
       parameters: []
+      tags:
+        - fuelstations
   /export/supplies/payments/circuits:
     get:
       summary: Get payment supplies
@@ -175,3 +177,6 @@ components:
   responses: {}
 tags:
   - name: import export
+security:
+  - develop: []
+  - production: []
