@@ -22,7 +22,7 @@ servers:
 paths:
   /export/fuelstations/circuits:
     get:
-      summary: fuelstations
+      summary: Get fuelstations circuits
       responses:
         '200':
           description: OK
@@ -68,11 +68,9 @@ paths:
       operationId: get-fuelstations-circuits
       description: Used to get all enabled fuelstations circuits
       parameters: []
-      tags:
-        - Get fuelstations circuits
   /export/supplies/payments/circuits:
     get:
-      summary: supplies
+      summary: Get payment supplies
       responses:
         '200':
           description: OK
