@@ -3,7 +3,7 @@ x-stoplight:
   id: 91a4ao3uk9mo2
 info:
   title: Import export Overview
-  version: '0.1'
+  version: '0.2'
   description: |-
     # Overview import export api documentation
 
@@ -16,10 +16,13 @@ info:
     name: Dev team internal
 servers:
   - url: 'https://mxp-import-export-ov.dev.icadsistemi.com/v1'
+    description: development
+  - url: 'https://mxp-import-export-ov.prod.icadsistemi.com/v1'
+    description: production
 paths:
   /export/fuelstations/circuits:
     get:
-      summary: Get fuelstations circuits
+      summary: fuelstations
       responses:
         '200':
           description: OK
@@ -63,18 +66,13 @@ paths:
         '500':
           description: Internal Server Error
       operationId: get-fuelstations-circuits
-      description: Used to get one or more fuelstations circuit
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: card_circuit
-          required: true
+      description: Used to get all enabled fuelstations circuits
+      parameters: []
       tags:
         - Get fuelstations circuits
   /export/supplies/payments/circuits:
     get:
-      summary: Get circuits payments supplies
+      summary: supplies
       responses:
         '200':
           description: OK
@@ -141,11 +139,6 @@ paths:
         - schema:
             type: string
           in: query
-          name: card_circuit
-          required: true
-        - schema:
-            type: string
-          in: query
           name: start_datetime
           required: true
           description: date time format unix time
@@ -159,13 +152,28 @@ paths:
         - schema:
             type: string
           in: query
-          name: is_updated_payments
+          name: only_updated_payments
           description: optionals. if true return list of circuits payments supplies updated
-      description: 'get circuits payments supplies'
+      description: Get circuits payments supplies
       tags:
-        - Get circuits payments supplies
+        - supplies
 components:
   schemas: {}
-  securitySchemes: {}
+  securitySchemes:
+    develop:
+      type: oauth2
+      flows:
+        clientCredentials:
+          refreshUrl: ''
+          scopes: {}
+          tokenUrl: 'https://dub-dev-icadsistemi-users.auth.eu-west-1.amazoncognito.com/token'
+    production:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: 'https://dub-prod-icadsistemi-users.auth.eu-west-1.amazoncognito.com/token'
+          refreshUrl: ''
+          scopes: {}
+  responses: {}
 tags:
   - name: import export
