@@ -3,7 +3,7 @@ x-stoplight:
   id: 91a4ao3uk9mo2
 info:
   title: Import export Overview
-  version: '0.4'
+  version: '0.5'
   description: |-
     # Overview import export api documentation
 
@@ -122,6 +122,16 @@ paths:
                     - card_name
                     - payment_mode
                     - amount
+              examples:
+                Example 1:
+                  value:
+                    - fuelstation_name: string
+                      iscode: string
+                      supplier_name: string
+                      datetime: string
+                      card_name: string
+                      payment_mode: string
+                      amount: 0
         '401':
           description: Unauthorized
         '403':
@@ -137,20 +147,20 @@ paths:
       operationId: get-circuits-payments-supplies
       parameters:
         - schema:
-            type: string
+            type: integer
           in: query
           name: start_datetime
           required: true
-          description: date time format unix time
+          description: 'unix time format '
         - schema:
-            type: string
+            type: integer
             format: date-time
           in: query
           name: end_datetime
           required: true
-          description: date time format unix time
+          description: unix time format
         - schema:
-            type: string
+            type: boolean
           in: query
           name: only_updated_payments
           description: optionals. if true return list of circuits payments supplies updated
