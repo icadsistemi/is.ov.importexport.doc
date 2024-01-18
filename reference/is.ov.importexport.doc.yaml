@@ -20,9 +20,9 @@ servers:
   - url: 'https://mxp-import-export-ov.prod.icadsistemi.com/v1'
     description: production
 paths:
-  /export/fuelstations/circuits:
+  /export/circuits/fuelstations:
     get:
-      summary: Get fuelstations circuits
+      summary: Get fuelstations for enabled circuits
       responses:
         '200':
           description: OK
@@ -66,13 +66,14 @@ paths:
         '500':
           description: Internal Server Error
       operationId: get-fuelstations-circuits
-      description: Used to get all enabled fuelstations circuits
+      description: Get all enabled fuelstations for enabled circuits
       parameters: []
       tags:
         - fuelstations
-  /export/supplies/payments/circuits:
+    parameters: []
+  /export/circuits/payments:
     get:
-      summary: Get payment supplies
+      summary: Get payments with supplies for enabled circuits
       responses:
         '200':
           description: OK
@@ -226,9 +227,10 @@ paths:
           in: query
           name: only_updated_payments
           description: optionals. if true return list of circuits payments supplies updated
-      description: Get circuits payments supplies
+      description: Get payments with supplies for enabled circuits
       tags:
         - supplies
+    parameters: []
 components:
   schemas: {}
   securitySchemes:
