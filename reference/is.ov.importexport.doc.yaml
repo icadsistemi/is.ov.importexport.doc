@@ -85,6 +85,11 @@ paths:
                     id: 6rz6q7a7rvzpu
                   type: object
                   properties:
+                    payment_id:
+                      type: integer
+                      x-stoplight:
+                        id: n3vtkc2pi2tqg
+                      description: System payment id
                     fuelstation_name:
                       type: string
                       x-stoplight:
@@ -114,6 +119,53 @@ paths:
                       type: number
                       x-stoplight:
                         id: jr1wu7zqgwwvi
+                    supplies:
+                      type: array
+                      x-stoplight:
+                        id: gl5qcjez2wwex
+                      items:
+                        x-stoplight:
+                          id: 953yqy8qnzj8e
+                        type: object
+                        properties:
+                          authorization_code:
+                            type: string
+                            x-stoplight:
+                              id: bs4ft7zekdu5k
+                          article:
+                            type: string
+                            x-stoplight:
+                              id: hjddmpeihlcub
+                          unit_price:
+                            type: number
+                            x-stoplight:
+                              id: 3dyamvx1t8jel
+                          ticket_number:
+                            type: integer
+                            x-stoplight:
+                              id: wy9qcjf3cai8q
+                          pump_number:
+                            type: integer
+                            x-stoplight:
+                              id: entlewabvnfyx
+                          vat:
+                            type: number
+                            x-stoplight:
+                              id: lxfnb3laj4ap8
+                          supply_id:
+                            type: integer
+                            x-stoplight:
+                              id: 5ek474pqv8cr0
+                            description: System supply id
+                          quantity:
+                            type: number
+                            x-stoplight:
+                              id: 7h4urgdaz4or3
+                          card_number:
+                            type: string
+                            x-stoplight:
+                              id: zhnoba96kcltj
+                            description: Last 4 chars from card number
                   required:
                     - fuelstation_name
                     - iscode
