@@ -229,7 +229,7 @@ paths:
           description: optionals. if true return list of circuits payments supplies updated
       description: Get payments with supplies for enabled circuits
       tags:
-        - supplies
+        - payments
     parameters: []
 components:
   schemas: {}
