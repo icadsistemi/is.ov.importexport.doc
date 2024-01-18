@@ -175,15 +175,26 @@ paths:
                     - payment_mode
                     - amount
               examples:
-                Example 1:
+                Example 2:
                   value:
-                    - fuelstation_name: string
+                    - payment_id: 0
+                      fuelstation_name: string
                       iscode: string
                       supplier_name: string
                       datetime: string
                       card_name: string
                       payment_mode: string
                       amount: 0
+                      supplies:
+                        - authorization_code: string
+                          article: string
+                          unit_price: 0
+                          ticket_number: 0
+                          pump_number: 0
+                          vat: 0
+                          supply_id: 0
+                          quantity: 0
+                          card_number: string
         '401':
           description: Unauthorized
         '403':
