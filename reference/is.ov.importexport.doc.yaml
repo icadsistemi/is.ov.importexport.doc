@@ -3,7 +3,7 @@ x-stoplight:
   id: 91a4ao3uk9mo2
 info:
   title: Import export Overview
-  version: '0.6'
+  version: '0.8'
   description: |-
     # Overview import export api documentation
 
