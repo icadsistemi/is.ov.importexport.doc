@@ -110,7 +110,7 @@ paths:
                       type: string
                       x-stoplight:
                         id: w7l9wlxthz8t4
-                      description: date time format in local time
+                      description: Transaction date time format in local time
                     card_name:
                       type: string
                       x-stoplight:
@@ -140,7 +140,7 @@ paths:
                       type: array
                       x-stoplight:
                         id: gl5qcjez2wwex
-                      description: Array of supplies that that were paid with this transaction
+                      description: Array of supplies that were paid with this transaction
                       items:
                         x-stoplight:
                           id: 953yqy8qnzj8e
@@ -180,6 +180,7 @@ paths:
                             type: number
                             x-stoplight:
                               id: 7h4urgdaz4or3
+                            description: Article quantity
                           card_number:
                             type: string
                             x-stoplight:
