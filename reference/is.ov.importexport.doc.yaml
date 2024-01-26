@@ -3,7 +3,7 @@ x-stoplight:
   id: 91a4ao3uk9mo2
 info:
   title: Import export Overview
-  version: '0.9'
+  version: '0.10'
   description: |-
     # Overview import export api documentation
 
@@ -153,11 +153,9 @@ paths:
                         properties:
                           article_id:
                             type: integer
-                            enum: [1, 2, 3, 4, 5, 6, 7, 10, 17, 20, 21, 22]
-                            x-enum-varnames: ["Verde", "Diesel", "Benzina Spec.", "Gasolio Spec.", "AdBlue", "GPL", "Metano", "Not Avaiable", "GNL", "Olio Lubr.", "HVO", "L-GNC"]
                             x-stoplight:
                               id: my330tnclmmg9
-                            description: Article identifier
+                            description: "Article identifier.\n1\tVerde\n2\tDiesel\n3\tBenzina Spec.\n4\tGasolio Spec.\n5\tAdBlue\n6\tGPL\n7\tMetano\n10\tNot Avaiable\n17\tGNL\n20\tOlio Lubr.\n21\tHVO\n22\tL-GNC"
                           article:
                             type: string
                             x-stoplight:
