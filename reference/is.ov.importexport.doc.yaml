@@ -179,22 +179,9 @@ paths:
                               - Olio Lubr.
                               - HVO
                               - L-GNC
-                            x-enum-descriptions:
-                              - Verde
-                              - Diesel
-                              - Benzina speciale
-                              - Gasolio speciale
-                              - AdBlue
-                              - GPL
-                              - Metano
-                              - Non disponibile
-                              - Gas naturale liquido
-                              - Olio lubrificante
-                              - HVO
-                              - Gas naturale compresso liquefatto
                             x-stoplight:
                               id: my330tnclmmg9
-                            description: Article identifier
+                            description: 'Article identifier: 1 - Green Petrol, 2 - Diesel, 3 - Special Petrol, 4 - Special Diesel, 5 - AdBlue, 6 - LPG (Liquefied Petroleum Gas), 7 - Methane, 17 - LNG (Liquefied Natural Gas), 20 - Lubricating Oil, 21 - HVO (Hydrotreated Vegetable Oil), 22 - L-GNC (Liquefied Compressed Natural Gas)'
                           article:
                             type: string
                             x-stoplight:
