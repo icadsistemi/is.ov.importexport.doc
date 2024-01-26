@@ -146,6 +146,11 @@ paths:
                           id: 953yqy8qnzj8e
                         type: object
                         properties:
+                          article_id:
+                            type: integer
+                            x-stoplight:
+                              id: my330tnclmmg9
+                            description: Article identifier
                           article:
                             type: string
                             x-stoplight:
