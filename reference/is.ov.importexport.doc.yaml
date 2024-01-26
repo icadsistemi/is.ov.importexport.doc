@@ -153,9 +153,48 @@ paths:
                         properties:
                           article_id:
                             type: integer
+                            enum:
+                              - 1
+                              - 2
+                              - 3
+                              - 4
+                              - 5
+                              - 6
+                              - 7
+                              - 10
+                              - 17
+                              - 20
+                              - 21
+                              - 22
+                            x-enum-varnames:
+                              - Verde
+                              - Diesel
+                              - Benzina Spec.
+                              - Gasolio Spec.
+                              - AdBlue
+                              - GPL
+                              - Metano
+                              - Not Avaiable
+                              - GNL
+                              - Olio Lubr.
+                              - HVO
+                              - L-GNC
+                            x-enum-descriptions:
+                              - Verde
+                              - Diesel
+                              - Benzina speciale
+                              - Gasolio speciale
+                              - AdBlue
+                              - GPL
+                              - Metano
+                              - Non disponibile
+                              - Gas naturale liquido
+                              - Olio lubrificante
+                              - HVO
+                              - Gas naturale compresso liquefatto
                             x-stoplight:
                               id: my330tnclmmg9
-                            description: "Article identifier.\n1\tVerde\n2\tDiesel\n3\tBenzina Spec.\n4\tGasolio Spec.\n5\tAdBlue\n6\tGPL\n7\tMetano\n10\tNot Avaiable\n17\tGNL\n20\tOlio Lubr.\n21\tHVO\n22\tL-GNC"
+                            description: Article identifier
                           article:
                             type: string
                             x-stoplight:
