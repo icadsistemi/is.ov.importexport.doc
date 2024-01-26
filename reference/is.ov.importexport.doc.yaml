@@ -116,6 +116,11 @@ paths:
                       x-stoplight:
                         id: 858hju9eoym6u
                       description: Card name
+                    card_number:
+                      type: string
+                      x-stoplight:
+                        id: 2d6bh2pucc9os
+                      description: Last 4 chars from card number
                     payment_mode:
                       type: string
                       x-stoplight:
@@ -186,11 +191,6 @@ paths:
                             x-stoplight:
                               id: 7h4urgdaz4or3
                             description: Article quantity
-                          card_number:
-                            type: string
-                            x-stoplight:
-                              id: zhnoba96kcltj
-                            description: Last 4 chars from card number
                           supply_amount:
                             type: number
                             x-stoplight:
@@ -206,6 +206,7 @@ paths:
                           supplier_name: string
                           datetime: string
                           card_name: string
+                          card_number: string
                           payment_mode: string
                           amount: 0
                           authorization_code: string
@@ -219,7 +220,6 @@ paths:
                               vat: 0
                               supply_id: 0
                               quantity: 0
-                              card_number: string
                               supply_amount: 0
         '201':
           description: Created
