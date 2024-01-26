@@ -153,6 +153,8 @@ paths:
                         properties:
                           article_id:
                             type: integer
+                            enum: [1, 2, 3, 4, 5, 6, 7, 10, 17, 20, 21, 22]
+                            x-enum-varnames: ["Verde", "Diesel", "Benzina Spec.", "Gasolio Spec.", "AdBlue", "GPL", "Metano", "Not Avaiable", "GNL", "Olio Lubr.", "HVO", "L-GNC"]
                             x-stoplight:
                               id: my330tnclmmg9
                             description: Article identifier
