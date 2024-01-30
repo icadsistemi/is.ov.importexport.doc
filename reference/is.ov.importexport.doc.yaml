@@ -3,7 +3,7 @@ x-stoplight:
   id: 91a4ao3uk9mo2
 info:
   title: Import export Overview
-  version: '0.10'
+  version: '0.11'
   description: |-
     # Overview import export api documentation
 
@@ -222,30 +222,29 @@ paths:
                               id: 159xjgu770m1r
                             description: Supply amount
               examples:
-                Example 2:
+                Example 1:
                   value:
-                    - value:
-                        - payment_id: 0
-                          fuelstation_name: string
-                          iscode: string
-                          supplier_name: string
-                          datetime: string
-                          card_name: string
-                          card_number: string
-                          payment_mode: string
-                          amount: 0
-                          authorization_code: string
-                          stan: string
-                          supplies:
-                            - article_id: 0
-                              article: string
-                              unit_price: 0
-                              ticket_number: 0
-                              pump_number: 0
-                              vat: 0
-                              supply_id: 0
-                              quantity: 0
-                              supply_amount: 0
+                    - payment_id: 0
+                      fuelstation_name: string
+                      iscode: string
+                      supplier_name: string
+                      datetime: string
+                      card_name: string
+                      card_number: string
+                      payment_mode: string
+                      amount: 0
+                      authorization_code: string
+                      stan: string
+                      supplies:
+                        - article_id: 1
+                          article: string
+                          unit_price: 0
+                          ticket_number: 0
+                          pump_number: 0
+                          vat: 0
+                          supply_id: 0
+                          quantity: 0
+                          supply_amount: 0
         '201':
           description: Created
         '401':
