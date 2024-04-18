@@ -3,7 +3,7 @@ x-stoplight:
   id: 91a4ao3uk9mo2
 info:
   title: Import export Overview
-  version: '0.11'
+  version: '1.0'
   description: |-
     # Overview import export api documentation
 
@@ -282,8 +282,403 @@ paths:
       tags:
         - payments
     parameters: []
+  '/export/closure/{iscode}/{date}/{closure_type}/{turn}':
+    parameters:
+      - schema:
+          type: string
+        name: iscode
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: date
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: closure_type
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: turn
+        in: path
+        required: true
+    get:
+      summary: Get closure per the fuel station.
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  x-stoplight:
+                    id: muyihh99jv9jo
+                  type: object
+                  properties:
+                    incames:
+                      x-stoplight:
+                        id: ua4os73biysah
+                      description: 'Incames with grouping amount by payment type '
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/incames'
+                        x-stoplight:
+                          id: 4wtxw6r2tkfzs
+                    sold:
+                      x-stoplight:
+                        id: c4081anmr6ctr
+                      description: Sold with grouped amount by product and indoor/outdoor type
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/sold'
+                        x-stoplight:
+                          id: t6h2ywpq0dn0k
+                    totalizers:
+                      x-stoplight:
+                        id: afssmi75zohlx
+                      description: Totalizers data
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/totalizers'
+                        x-stoplight:
+                          id: ljugq7enrs9lw
+                    selfCash:
+                      x-stoplight:
+                        id: n7hf65arfjwtw
+                      description: Self cash data
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/selfCash'
+                        x-stoplight:
+                          id: podr9c8ehokia
+                    squaring:
+                      $ref: '#/components/schemas/squaring'
+                      x-stoplight:
+                        id: apxkjcju6rmff
+                      description: Squaring between sold and incames amounts
+                    deliveries:
+                      type: array
+                      x-stoplight:
+                        id: s3ow948x671w3
+                      description: Deliveries with supplies and payments details
+                      items:
+                        $ref: '#/components/schemas/deliveries'
+                        x-stoplight:
+                          id: j6nwvgm7z1rxn
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable Entity (WebDAV)
+        '429':
+          description: Too Many Requests
+        '500':
+          description: Internal Server Error
+      operationId: get-export-closure-iscode-date-closure_type-turn
 components:
-  schemas: {}
+  schemas:
+    sold:
+      title: sold
+      x-stoplight:
+        id: 92azhb67fclyz
+      type: object
+      properties:
+        product:
+          type: string
+          x-stoplight:
+            id: jqyrz4i5ss9pr
+          description: Product description
+        unitPrice:
+          type: number
+          x-stoplight:
+            id: y9jhu33q139e8
+          description: Unit price
+        indoorVolume:
+          type: number
+          x-stoplight:
+            id: bddrbpydwc7z5
+          description: Indoor volume
+        indoorAmount:
+          type: number
+          x-stoplight:
+            id: u8jt4eyrl2jyn
+          description: Indoor amount
+        outdoorVolume:
+          type: number
+          x-stoplight:
+            id: yemzphm0139ga
+          description: Outdoor volume
+        outdoorAmount:
+          type: number
+          x-stoplight:
+            id: b9gm2v6bo5hbq
+          description: Outdoor amount
+    incames:
+      title: incames
+      x-stoplight:
+        id: sr7ci8khxr4xy
+      type: object
+      properties:
+        payment:
+          type: string
+          x-stoplight:
+            id: zjifblutiw19n
+          description: Payment type description
+        indoor:
+          type: number
+          x-stoplight:
+            id: i0ua3kmd4pyuj
+          description: Indoor amount for the payment type
+        outdoor:
+          type: number
+          x-stoplight:
+            id: ljaxm5z1girgo
+          description: Outdoor amount for the payment type
+        total:
+          type: number
+          x-stoplight:
+            id: ld8lwi50qtkhj
+          description: Total amount for the payment type
+    totalizers:
+      title: totalizers
+      x-stoplight:
+        id: 2iy6m6czaozb1
+      type: object
+      properties:
+        codePump:
+          type: string
+          x-stoplight:
+            id: hc60kx8nohfgb
+          description: Pump code
+        numNozzle:
+          type: number
+          x-stoplight:
+            id: jznekitze0245
+          description: nozzle number
+        prodID:
+          type: number
+          x-stoplight:
+            id: ghp2ewqkkdjow
+          description: Product unique identifier
+        product:
+          type: string
+          x-stoplight:
+            id: 53y55feh0n92u
+          description: Product description
+        totStart:
+          type: number
+          x-stoplight:
+            id: clov8t46hihr9
+          description: Totalizer start value
+        totEnd:
+          type: number
+          x-stoplight:
+            id: a7omtdikz37rq
+          description: Totalizer end value
+        totDiff:
+          type: number
+          x-stoplight:
+            id: hncolva6rym2g
+          description: Totalizer difference from start and end value
+    selfCash:
+      title: selfCash
+      x-stoplight:
+        id: cv61ulxxtyayp
+      type: object
+      properties:
+        description:
+          type: string
+          x-stoplight:
+            id: ozybchehnb9cu
+          description: Self cash description
+        note:
+          type: string
+          x-stoplight:
+            id: db5hq5iq390tx
+          description: Additional note
+        amount:
+          type: number
+          x-stoplight:
+            id: r5q1ddo9kqwg6
+          description: Self cash amount
+    squaring:
+      title: squaring
+      x-stoplight:
+        id: oglqf99oodwk9
+      type: object
+      properties:
+        sold:
+          type: number
+          x-stoplight:
+            id: e8gkkaaz4cwc3
+          description: Sold total amount
+        incames:
+          type: number
+          x-stoplight:
+            id: 50xu01nyffvpw
+          description: Incames total amount
+        difference:
+          type: number
+          x-stoplight:
+            id: ivrc1lprcau99
+          description: difference between sold and incames total amounts
+        remains:
+          type: number
+          x-stoplight:
+            id: fe0m6reinxa4f
+          description: Remains amount
+        refunds:
+          type: number
+          x-stoplight:
+            id: 0c3kkkfxi5xfx
+          description: Refunds amounts
+    payments:
+      title: payments
+      x-stoplight:
+        id: swl8s0k43rwfm
+      type: object
+      properties:
+        datetime:
+          type: string
+          x-stoplight:
+            id: h92n5almwklal
+          description: Payment date time
+        amount:
+          type: number
+          x-stoplight:
+            id: u3zu3yjhswipe
+          description: Payment amount
+        paymentMode:
+          type: string
+          x-stoplight:
+            id: fblvjr72acx0t
+          description: Payment mode type
+        card:
+          type: string
+          x-stoplight:
+            id: mvarn48bjbvs6
+          description: Payment card name
+        stan:
+          type: string
+          x-stoplight:
+            id: s8kkh5gav7t7n
+          description: System Trace Audit Number
+        auth:
+          type: string
+          x-stoplight:
+            id: f63oygkku7iiy
+          description: Unique numeric code generated by the payment card issuer during the authorization process
+    deliveries:
+      title: deliveries
+      x-stoplight:
+        id: r2qe1aiifn4he
+      type: object
+      properties:
+        payments:
+          x-stoplight:
+            id: 3oe12ioi0757d
+          type: array
+          items:
+            $ref: '#/components/schemas/payments'
+            x-stoplight:
+              id: q89l535ig5key
+        id:
+          type: number
+          x-stoplight:
+            id: ma27vj7qh7kpt
+          description: System supply unique identifier
+        storeId:
+          type: string
+          x-stoplight:
+            id: lrr29p5sl3r5b
+          description: IS code assigned to the fuel station
+        transactionNumber:
+          type: number
+          x-stoplight:
+            id: 4zpm46cs8qpzz
+          description: Transaction number
+        dateTime:
+          type: string
+          x-stoplight:
+            id: 0k6nprpgl4do5
+          description: Supply date time in local time format
+        unitPrice:
+          type: number
+          x-stoplight:
+            id: kswunys5rqa6w
+          description: Article unit price
+        volume:
+          type: number
+          x-stoplight:
+            id: e4qxb21du9q7f
+          description: Article quantity
+        operativeMode:
+          type: string
+          x-stoplight:
+            id: wsrqvs0udjvmx
+          description: Operative mode type
+        eleTotalizer:
+          type: number
+          x-stoplight:
+            id: ycuek9cn82txw
+          description: Value of electronic totalizer
+        mecTotalizer:
+          type: number
+          x-stoplight:
+            id: i0im9bqammbq1
+          description: Value of mechanical totalizer
+        transactionId:
+          type: number
+          x-stoplight:
+            id: arrt822701tkq
+          description: Transaction identifier
+        localCard:
+          type: string
+          x-stoplight:
+            id: 6bxuevf30atbd
+          description: Card number
+        invoice:
+          type: boolean
+          x-stoplight:
+            id: plrvjgxb4wqhy
+          description: Invoice info
+        productName:
+          type: string
+          x-stoplight:
+            id: aikh88usarnth
+          description: Article name
+        productCode:
+          type: number
+          x-stoplight:
+            id: lwfn56hjufpeo
+          description: Article identifier
+        numPump:
+          type: number
+          x-stoplight:
+            id: iqqq5vnuo9wak
+          description: Pump number
+        numNozzle:
+          type: number
+          x-stoplight:
+            id: 9hv27n25vfj2z
+          description: Nozzle number
+        priceLevel:
+          type: string
+          x-stoplight:
+            id: 5lu1ekwj72nl6
+          description: Price level
+        mode:
+          type: string
+          x-stoplight:
+            id: iyolgt1x6u3ty
+          description: Mode
   securitySchemes:
     develop:
       type: oauth2
