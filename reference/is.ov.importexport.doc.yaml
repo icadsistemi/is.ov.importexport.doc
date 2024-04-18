@@ -305,8 +305,9 @@ paths:
         in: path
         required: true
     get:
-      summary: Get closure per the fuel station.
-      tags: []
+      summary: Get closure for the fuel station
+      tags:
+        - closures
       responses:
         '200':
           description: OK
@@ -382,6 +383,7 @@ paths:
         '500':
           description: Internal Server Error
       operationId: get-export-closure-iscode-date-closure_type-turn
+      description: Get closure per the fuel station
 components:
   schemas:
     sold:
