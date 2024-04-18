@@ -289,21 +289,25 @@ paths:
         name: iscode
         in: path
         required: true
+        description: IS code assigned to the fuel station
       - schema:
           type: string
         name: date
         in: path
         required: true
+        description: Reference date on format YYYYMMDD
       - schema:
           type: string
         name: closure_type
         in: path
         required: true
+        description: 'Closure type (allowed values: day, pc, turn). Recommended "day" to avoid problems with missing closures'
       - schema:
           type: string
         name: turn
         in: path
         required: true
+        description: Turn number. User 0 for closure_type "day" or "pc".
     get:
       summary: Get closure for the fuel station
       tags:
