@@ -3,7 +3,7 @@ x-stoplight:
   id: 91a4ao3uk9mo2
 info:
   title: Import export Overview
-  version: '1.0'
+  version: '1.1'
   description: |-
     # Overview import export api documentation
 
@@ -265,8 +265,8 @@ paths:
             type: integer
           in: query
           name: start_datetime
-          required: true
           description: 'unix time format '
+          required: true
         - schema:
             type: integer
           in: query
@@ -396,7 +396,48 @@ paths:
         '500':
           description: Internal Server Error
       operationId: get-export-closure-iscode-date-closure_type-turn
-      description: Get closure per the fuel station
+      description: Get closure for the fuel station
+  /export/levels:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/level'
+                  x-stoplight:
+                    id: 8uf4oh10oaadr
+      operationId: get-export-levels
+      description: Get levels
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: start_datetime
+          description: start date time in unix time format (maximum interval between start and end 7 days)
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: end_datetime
+          description: end date time in unix time format (maximum interval between start and end 7 days)
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: supplier_id
+          description: supplier identifier
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: fuel_station_code
+          description: optional fuel station code (if omitted get levels for all fuel stations)
 components:
   schemas:
     sold:
@@ -740,6 +781,47 @@ components:
           x-stoplight:
             id: dbmawocrambkv
           description: Additional note
+    level:
+      title: level
+      x-stoplight:
+        id: 56ia4557y7o3z
+      type: object
+      properties:
+        tank_number:
+          type: number
+          x-stoplight:
+            id: 4mes3pzh5wqk7
+          description: tank number
+        article_id:
+          type: number
+          x-stoplight:
+            id: yxhpw8byb1xk5
+          description: article identifier
+        article_description:
+          type: string
+          x-stoplight:
+            id: brzpnhty2c6xr
+          description: article description
+        read_datetime:
+          type: string
+          x-stoplight:
+            id: to40aavhvqlmj
+          description: read date time
+        is_manual:
+          type: boolean
+          x-stoplight:
+            id: nlxxlh6kab7h0
+          description: true if level was inserted/edited by the user
+        volume:
+          type: number
+          x-stoplight:
+            id: 76r98mp2tlqtt
+          description: volume
+        fuel_level:
+          type: number
+          x-stoplight:
+            id: 6i5ox1il162ru
+          description: fuel level
   securitySchemes:
     develop:
       type: oauth2
