@@ -399,8 +399,9 @@ paths:
       description: Get closure for the fuel station
   /export/levels:
     get:
-      summary: Your GET endpoint
-      tags: []
+      summary: Get levels
+      tags:
+        - levels
       responses:
         '200':
           description: OK
