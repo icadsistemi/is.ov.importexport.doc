@@ -417,19 +417,19 @@ paths:
       description: Get levels
       parameters:
         - schema:
-            type: string
+            type: integer
           in: query
           name: start_datetime
           description: start date time in unix time format (maximum interval between start and end 7 days)
           required: true
         - schema:
-            type: string
+            type: integer
           in: query
           name: end_datetime
           description: end date time in unix time format (maximum interval between start and end 7 days)
           required: true
         - schema:
-            type: string
+            type: integer
           in: query
           name: supplier_id
           description: supplier identifier
