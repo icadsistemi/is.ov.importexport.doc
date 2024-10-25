@@ -3,14 +3,33 @@ x-stoplight:
   id: 91a4ao3uk9mo2
 info:
   title: Import export Overview
-  version: '1.1'
-  description: |-
+  version: '1.2'
+  description: |
     # Overview import export api documentation
 
     The HTTP status codes returned by the endpoints follow these rules:
     - If the flow is correct, returns positive response code
     - If the flow is incorrect, returns negative response code 
     - If the flow breaks for some reason (DB connection, malformed input, etc..), returns negative response
+
+    # Enums
+
+    ### Product Code (productCode)
+
+    | code   | Prodotto (IT)    |
+    | ------ | ---------------- | 
+    | 1      | Verde            | 
+    | 2      | Diesel           | 
+    | 3      | Benzina Spec.    | 
+    | 4      | Gasolio Spec.    | 
+    | 5      | AdBlue           | 
+    | 6      | GPL              | 
+    | 7      | Metano           | 
+    | 17     | GNL              | 
+    | 20     | Olio Lubr.       | 
+    | 21     | HVO              | 
+    | 22     | L-GNC            | 
+        
   contact:
     email: internal-dev-team@icadsistemi.com
     name: Dev team internal
