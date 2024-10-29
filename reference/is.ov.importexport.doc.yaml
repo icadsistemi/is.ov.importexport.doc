@@ -3,7 +3,7 @@ x-stoplight:
   id: 91a4ao3uk9mo2
 info:
   title: Import export Overview
-  version: '1.2'
+  version: '1.3'
   description: |
     # Overview import export api documentation
 
@@ -14,21 +14,21 @@ info:
 
     # Enums
 
-    ### Product Code (productCode)
+    ### Product Id or Product Code
 
-    | code   | Prodotto (IT)    |
-    | ------ | ---------------- | 
-    | 1      | Verde            | 
-    | 2      | Diesel           | 
-    | 3      | Benzina Spec.    | 
-    | 4      | Gasolio Spec.    | 
-    | 5      | AdBlue           | 
-    | 6      | GPL              | 
-    | 7      | Metano           | 
-    | 17     | GNL              | 
-    | 20     | Olio Lubr.       | 
-    | 21     | HVO              | 
-    | 22     | L-GNC            | 
+    | product id | product code | description   |
+    |------------|--------------|---------------|
+    | 1          | 1            | Verde         |
+    | 2          | 2            | Diesel        |
+    | 3          | 3            | Benzina Spec. |
+    | 4          | 4            | Gasolio Spec. |
+    | 5          | 5            | AdBlue        |
+    | 6          | 6            | GPL           |
+    | 7          | 7            | Metano        |
+    | 17         | 8            | GNL           |
+    | 20         | 9            | Olio Lubr.    |
+    | 21         | 10           | HVO           |
+    | 22         | 11           | L-GNC         |
         
   contact:
     email: internal-dev-team@icadsistemi.com
