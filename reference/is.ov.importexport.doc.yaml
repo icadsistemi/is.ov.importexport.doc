@@ -3,7 +3,7 @@ x-stoplight:
   id: 91a4ao3uk9mo2
 info:
   title: Import export Overview
-  version: '1.3'
+  version: "1.3"
   description: |
     # Overview import export api documentation
 
@@ -78,21 +78,21 @@ info:
         <td>L-GNC</td>
     </tr>
     </table>
-        
+
   contact:
     email: internal-dev-team@icadsistemi.com
     name: Dev team internal
 servers:
-  - url: 'https://mxp-import-export-ov.dev.icadsistemi.com/v1'
+  - url: "https://mxp-import-export-ov.dev.icadsistemi.com/v1"
     description: development
-  - url: 'https://mxp-import-export-ov.prod.icadsistemi.com/v1'
+  - url: "https://mxp-import-export-ov.prod.icadsistemi.com/v1"
     description: production
 paths:
   /export/circuits/fuelstations:
     get:
       summary: Get fuelstations for enabled circuits
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -121,17 +121,17 @@ paths:
                     - fuelstation_name: string
                       iscode: string
                       supplier_name: string
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
-        '422':
+        "422":
           description: Unprocessable Entity (WebDAV)
-        '429':
+        "429":
           description: Too Many Requests
-        '500':
+        "500":
           description: Internal Server Error
       operationId: get-fuelstations-circuits
       description: Get all enabled fuelstations for enabled circuits
@@ -143,7 +143,7 @@ paths:
     get:
       summary: Get payments with supplies for enabled circuits
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -248,7 +248,7 @@ paths:
                               - L-GNC
                             x-stoplight:
                               id: my330tnclmmg9
-                            description: 'Article identifier: 1 - Green Petrol, 2 - Diesel, 3 - Special Petrol, 4 - Special Diesel, 5 - AdBlue, 6 - LPG (Liquefied Petroleum Gas), 7 - Methane, 17 - LNG (Liquefied Natural Gas), 20 - Lubricating Oil, 21 - HVO (Hydrotreated Vegetable Oil), 22 - L-GNC (Liquefied Compressed Natural Gas)'
+                            description: "Article identifier: 1 - Green Petrol, 2 - Diesel, 3 - Special Petrol, 4 - Special Diesel, 5 - AdBlue, 6 - LPG (Liquefied Petroleum Gas), 7 - Methane, 17 - LNG (Liquefied Natural Gas), 20 - Lubricating Oil, 21 - HVO (Hydrotreated Vegetable Oil), 22 - L-GNC (Liquefied Compressed Natural Gas)"
                           article:
                             type: string
                             x-stoplight:
@@ -313,19 +313,19 @@ paths:
                           supply_id: 0
                           quantity: 0
                           supply_amount: 0
-        '201':
+        "201":
           description: Created
-        '401':
+        "401":
           description: Unauthorized
-        '403':
+        "403":
           description: Forbidden
-        '404':
+        "404":
           description: Not Found
-        '422':
+        "422":
           description: Unprocessable Entity (WebDAV)
-        '429':
+        "429":
           description: Too Many Requests
-        '500':
+        "500":
           description: Internal Server Error
       operationId: get-circuits-payments-supplies
       parameters:
@@ -333,7 +333,7 @@ paths:
             type: integer
           in: query
           name: start_datetime
-          description: 'unix time format '
+          description: "unix time format "
           required: true
         - schema:
             type: integer
@@ -350,7 +350,7 @@ paths:
       tags:
         - payments
     parameters: []
-  '/export/closure/{iscode}/{date}/{closure_type}/{turn}':
+  "/export/closure/{iscode}/{date}/{closure_type}/{turn}":
     parameters:
       - schema:
           type: string
@@ -381,7 +381,7 @@ paths:
       tags:
         - closures
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
@@ -395,10 +395,10 @@ paths:
                     incames:
                       x-stoplight:
                         id: ua4os73biysah
-                      description: 'Incames with grouping amount by payment type '
+                      description: "Incames with grouping amount by payment type "
                       type: array
                       items:
-                        $ref: '#/components/schemas/incame'
+                        $ref: "#/components/schemas/incame"
                         x-stoplight:
                           id: 4wtxw6r2tkfzs
                     sold:
@@ -407,7 +407,7 @@ paths:
                       description: Sold with grouped amount by product and indoor/outdoor type
                       type: array
                       items:
-                        $ref: '#/components/schemas/sold'
+                        $ref: "#/components/schemas/sold"
                         x-stoplight:
                           id: t6h2ywpq0dn0k
                     totalizers:
@@ -416,7 +416,7 @@ paths:
                       description: Totalizers data
                       type: array
                       items:
-                        $ref: '#/components/schemas/totalizer'
+                        $ref: "#/components/schemas/totalizer"
                         x-stoplight:
                           id: ljugq7enrs9lw
                     selfCash:
@@ -425,11 +425,11 @@ paths:
                       description: Self cash data
                       type: array
                       items:
-                        $ref: '#/components/schemas/selfCash'
+                        $ref: "#/components/schemas/selfCash"
                         x-stoplight:
                           id: podr9c8ehokia
                     squaring:
-                      $ref: '#/components/schemas/squaring'
+                      $ref: "#/components/schemas/squaring"
                       x-stoplight:
                         id: apxkjcju6rmff
                       description: Squaring between sold and incames amounts
@@ -439,7 +439,7 @@ paths:
                         id: s3ow948x671w3
                       description: Deliveries with supplies and payments details
                       items:
-                        $ref: '#/components/schemas/delivery'
+                        $ref: "#/components/schemas/delivery"
                         x-stoplight:
                           id: j6nwvgm7z1rxn
                     cashPayments:
@@ -448,20 +448,20 @@ paths:
                         id: kpdrisjgeoyvd
                       description: Cash payments details
                       items:
-                        $ref: '#/components/schemas/cashPayment'
+                        $ref: "#/components/schemas/cashPayment"
                         x-stoplight:
                           id: zddppz6urqvee
-        '400':
+        "400":
           description: Bad Request
-        '401':
+        "401":
           description: Unauthorized
-        '404':
+        "404":
           description: Not Found
-        '422':
+        "422":
           description: Unprocessable Entity (WebDAV)
-        '429':
+        "429":
           description: Too Many Requests
-        '500':
+        "500":
           description: Internal Server Error
       operationId: get-export-closure-iscode-date-closure_type-turn
       description: Get closure for the fuel station
@@ -471,14 +471,14 @@ paths:
       tags:
         - levels
       responses:
-        '200':
+        "200":
           description: OK
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/level'
+                  $ref: "#/components/schemas/level"
                   x-stoplight:
                     id: 8uf4oh10oaadr
       operationId: get-export-levels
@@ -711,7 +711,7 @@ components:
             id: 3oe12ioi0757d
           type: array
           items:
-            $ref: '#/components/schemas/payments'
+            $ref: "#/components/schemas/payment"
             x-stoplight:
               id: q89l535ig5key
         id:
@@ -896,15 +896,15 @@ components:
       type: oauth2
       flows:
         clientCredentials:
-          refreshUrl: ''
+          refreshUrl: ""
           scopes: {}
-          tokenUrl: 'https://dub-dev-icadsistemi-users.auth.eu-west-1.amazoncognito.com/token'
+          tokenUrl: "https://dub-dev-icadsistemi-users.auth.eu-west-1.amazoncognito.com/token"
     production:
       type: oauth2
       flows:
         clientCredentials:
-          tokenUrl: 'https://dub-prod-icadsistemi-users.auth.eu-west-1.amazoncognito.com/token'
-          refreshUrl: ''
+          tokenUrl: "https://dub-prod-icadsistemi-users.auth.eu-west-1.amazoncognito.com/token"
+          refreshUrl: ""
           scopes: {}
   responses: {}
 tags:
