@@ -16,19 +16,68 @@ info:
 
     ### Product Id or Product Code
 
-    | product id | product code | description   |
-    |------------|--------------|---------------|
-    | 1          | 1            | Verde         |
-    | 2          | 2            | Diesel        |
-    | 3          | 3            | Benzina Spec. |
-    | 4          | 4            | Gasolio Spec. |
-    | 5          | 5            | AdBlue        |
-    | 6          | 6            | GPL           |
-    | 7          | 7            | Metano        |
-    | 17         | 8            | GNL           |
-    | 20         | 9            | Olio Lubr.    |
-    | 21         | 10           | HVO           |
-    | 22         | 11           | L-GNC         |
+    <table>
+    <tr>
+        <td>product id</td>
+        <td>product code</td>
+        <td>description</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1</td>
+        <td>Verde</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>2</td>
+        <td>Diesel</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>3</td>
+        <td>Benzina Spec.</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>4</td>
+        <td>Gasolio Spec.</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>5</td>
+        <td>AdBlue</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>6</td>
+        <td>GPL</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>7</td>
+        <td>Metano</td>
+    </tr>
+    <tr>
+        <td>17</td>
+        <td>8</td>
+        <td>GNL</td>
+    </tr>
+    <tr>
+        <td>20</td>
+        <td>9</td>
+        <td>Olio Lubr.</td>
+    </tr>
+    <tr>
+        <td>21</td>
+        <td>10</td>
+        <td>HVO</td>
+    </tr>
+    <tr>
+        <td>22</td>
+        <td>11</td>
+        <td>L-GNC</td>
+    </tr>
+    </table>
         
   contact:
     email: internal-dev-team@icadsistemi.com
