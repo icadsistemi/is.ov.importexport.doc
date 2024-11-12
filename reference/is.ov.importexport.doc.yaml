@@ -18,9 +18,9 @@ info:
 
     <table>
     <tr>
-        <td>product id</td>
-        <td>product code</td>
-        <td>description</td>
+        <td>Product ID</td>
+        <td>Product code</td>
+        <td>Description</td>
     </tr>
     <tr>
         <td>1</td>
