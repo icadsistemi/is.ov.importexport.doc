@@ -3,7 +3,7 @@ x-stoplight:
   id: 91a4ao3uk9mo2
 info:
   title: Import export Overview
-  version: '1.4'
+  version: '1.5'
   description: |
     # Overview import export api documentation
 
@@ -137,6 +137,7 @@ paths:
       parameters: []
       tags:
         - fuelstations
+      x-internal: true
     parameters: []
   /export/circuits/payments:
     get:
