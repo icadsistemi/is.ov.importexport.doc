@@ -3,7 +3,7 @@ x-stoplight:
   id: 91a4ao3uk9mo2
 info:
   title: Import export Overview
-  version: '1.5'
+  version: '1.6.0'
   description: |
     # Overview import export api documentation
 
@@ -87,6 +87,56 @@ servers:
   - url: 'https://mxp-import-export-ov.prod.icadsistemi.com/v1'
     description: production
 paths:
+  /export/fuelstations:
+    get:
+      summary: Get fuelstations for enabled circuits
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                x-examples:
+                  Example 1:
+                    - id: 3255
+                      iscode: IS380021
+                      fuelstation_name: Due Carrare
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      description: fuelstation identifier
+                    iscode:
+                      type: string
+                      description: |
+                        icad store code
+                    fuelstation_name:
+                      type: string
+                      description: feulstation name
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable Entity (WebDAV)
+        '500':
+          description: Internal Server Error
+      operationId: get-fuelstations-from-supplier-id
+      description: Get all enabled fuelstations for supplier id
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: supplier_id
+          description: supplier identifier
+      tags:
+        - fuelstations
+      x-internal: true
+    parameters: []
   /export/circuits/fuelstations:
     get:
       summary: Get fuelstations for enabled circuits
@@ -351,6 +401,48 @@ paths:
         - payments
       x-internal: true
     parameters: []
+  /export/levels:
+    get:
+      summary: Get levels
+      tags:
+        - levels
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/level'
+                  x-stoplight:
+                    id: 8uf4oh10oaadr
+      operationId: get-export-levels
+      description: Get levels
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: start_datetime
+          description: start date time in unix time format (maximum interval between start and end 7 days)
+          required: true
+        - schema:
+            type: integer
+          in: query
+          name: end_datetime
+          description: end date time in unix time format (maximum interval between start and end 7 days)
+          required: true
+        - schema:
+            type: integer
+          in: query
+          name: supplier_id
+          description: supplier identifier
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: fuel_station_code
+          description: optional fuel station code (if omitted get levels for all fuel stations)
   '/export/closure/{iscode}/{date}/{closure_type}/{turn}':
     parameters:
       - schema:
@@ -466,11 +558,9 @@ paths:
           description: Internal Server Error
       operationId: get-export-closure-iscode-date-closure_type-turn
       description: Get closure for the fuel station
-  /export/levels:
+  /export/closure/turn:
     get:
-      summary: Get levels
-      tags:
-        - levels
+      summary: Get fuelstations for enabled circuits
       responses:
         '200':
           description: OK
@@ -478,36 +568,63 @@ paths:
             application/json:
               schema:
                 type: array
+                x-examples:
+                  Example 1:
+                    - fuelStation_id: 3255
+                      start_datetime: '2023-01-02T00:00:00Z'
+                      end_datetime: '2023-01-02T23:59:59Z'
+                      turn: 0
+                      in_progress: false
                 items:
-                  $ref: '#/components/schemas/level'
-                  x-stoplight:
-                    id: 8uf4oh10oaadr
-      operationId: get-export-levels
-      description: Get levels
+                  type: object
+                  properties:
+                    fuelStation_id:
+                      type: integer
+                    start_datetime:
+                      type: string
+                      description: |
+                        start date time closure
+                    end_datetime:
+                      type: string
+                      description: end date time closure
+                    turn:
+                      type: integer
+                      description: turn number
+                    in_progress:
+                      type: boolean
+                      description: if true the shift has not yet been closed and the data may var.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '422':
+          description: Unprocessable Entity (WebDAV)
+        '500':
+          description: Internal Server Error
+      operationId: get-fuelstations-from-supplier-id
+      description: Get all enabled fuelstations for supplier id
       parameters:
-        - schema:
-            type: integer
-          in: query
-          name: start_datetime
-          description: start date time in unix time format (maximum interval between start and end 7 days)
-          required: true
-        - schema:
-            type: integer
-          in: query
-          name: end_datetime
-          description: end date time in unix time format (maximum interval between start and end 7 days)
-          required: true
-        - schema:
-            type: integer
-          in: query
-          name: supplier_id
-          description: supplier identifier
-          required: true
         - schema:
             type: string
           in: query
-          name: fuel_station_code
-          description: optional fuel station code (if omitted get levels for all fuel stations)
+          name: fuelstation_id
+          description: fuelstation identifier
+        - schema:
+            type: string
+          in: query
+          name: closure_date
+          description: format "2023-01-02"
+        - schema:
+            type: string
+          in: query
+          name: closure_type
+          description: 'type "day", "turn" or "pc"'
+      tags:
+        - fuelstations
+      x-internal: true
+    parameters: []
 components:
   schemas:
     sold:
