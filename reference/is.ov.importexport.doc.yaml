@@ -3,7 +3,7 @@ x-stoplight:
   id: 91a4ao3uk9mo2
 info:
   title: Import export Overview
-  version: '1.6.0'
+  version: 1.6.1
   description: |
     # Overview import export api documentation
 
@@ -89,7 +89,7 @@ servers:
 paths:
   /export/fuelstations:
     get:
-      summary: Get fuelstations for enabled circuits
+      summary: Get fuelstations by supplier id
       responses:
         '200':
           description: OK
@@ -125,17 +125,11 @@ paths:
           description: Unprocessable Entity (WebDAV)
         '500':
           description: Internal Server Error
-      operationId: get-fuelstations-from-supplier-id
-      description: Get all enabled fuelstations for supplier id
-      parameters:
-        - schema:
-            type: string
-          in: query
-          name: supplier_id
-          description: supplier identifier
       tags:
         - fuelstations
-      x-internal: true
+      x-internal: false
+      description: Get Fuelstations by supplier id
+      operationId: get-fuelstations-by-supplier-id
     parameters: []
   /export/circuits/fuelstations:
     get:
@@ -558,9 +552,9 @@ paths:
           description: Internal Server Error
       operationId: get-export-closure-iscode-date-closure_type-turn
       description: Get closure for the fuel station
-  /export/closure/turn:
+  /export/closure/turns:
     get:
-      summary: Get fuelstations for enabled circuits
+      summary: Get closure turns
       responses:
         '200':
           description: OK
@@ -603,8 +597,8 @@ paths:
           description: Unprocessable Entity (WebDAV)
         '500':
           description: Internal Server Error
-      operationId: get-fuelstations-from-supplier-id
-      description: Get all enabled fuelstations for supplier id
+      operationId: get-closure-turns
+      description: Get all closure turns
       parameters:
         - schema:
             type: string
@@ -623,7 +617,7 @@ paths:
           description: 'type "day", "turn" or "pc"'
       tags:
         - fuelstations
-      x-internal: true
+      x-internal: false
     parameters: []
 components:
   schemas:
