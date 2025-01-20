@@ -3,7 +3,7 @@ x-stoplight:
   id: 91a4ao3uk9mo2
 info:
   title: Import export Overview
-  version: 1.6.1
+  version: 1.6.2
   description: |
     # Overview import export api documentation
 
@@ -616,7 +616,7 @@ paths:
           name: closure_type
           description: 'type "day", "turn" or "pc"'
       tags:
-        - fuelstations
+        - closures
       x-internal: false
     parameters: []
 components:
