@@ -163,10 +163,10 @@ h={};g()}};typeof define==="function"&&define.amd&&define("google-code-prettify"
         } else {
             // Use a for loop instead of forEach to avoid nested functions
             // Otherwise "return" will not work properly
-            for(var propt in currentNode){
-                if (currentNode.hasOwnProperty(propt)) {
-                    currentChild = currentNode[propt]
-                    if (id == propt) {
+            for(var property in currentNode){
+                if (currentNode.hasOwnProperty(property)) {
+                    currentChild = currentNode[property]
+                    if (id == property) {
                         return currentChild;
                     } else {
                         // Search in the current child
@@ -1217,6 +1217,29 @@ ul.nav-tabs {
     "id" : "953yqy8qnzj8e"
   }
 };
+    defs["get_closure_turns_200_response_inner"] = {
+  "properties" : {
+    "fuelStation_id" : {
+      "type" : "integer"
+    },
+    "start_datetime" : {
+      "type" : "string",
+      "description" : "start date time closure\n"
+    },
+    "end_datetime" : {
+      "type" : "string",
+      "description" : "end date time closure"
+    },
+    "turn" : {
+      "type" : "integer",
+      "description" : "turn number"
+    },
+    "in_progress" : {
+      "type" : "boolean",
+      "description" : "if true the shift has not yet been closed and the data may var."
+    }
+  }
+};
     defs["get_export_closure_iscode_date_closure_type_turn_200_response_inner"] = {
   "properties" : {
     "incames" : {
@@ -1285,6 +1308,22 @@ ul.nav-tabs {
   },
   "x-stoplight" : {
     "id" : "muyihh99jv9jo"
+  }
+};
+    defs["get_fuelstations_by_supplier_id_200_response_inner"] = {
+  "properties" : {
+    "id" : {
+      "type" : "integer",
+      "description" : "fuelstation identifier"
+    },
+    "iscode" : {
+      "type" : "string",
+      "description" : "icad store code\n"
+    },
+    "fuelstation_name" : {
+      "type" : "string",
+      "description" : "feulstation name"
+    }
   }
 };
     defs["get_fuelstations_circuits_200_response_inner"] = {
@@ -1657,6 +1696,13 @@ ul.nav-tabs {
                     <li data-group="Closures" data-name="getExportClosureIscodeDateClosureTypeTurn" class="">
                       <a href="#api-Closures-getExportClosureIscodeDateClosureTypeTurn">getExportClosureIscodeDateClosureTypeTurn</a>
                     </li>
+                  <li class="nav-header" data-group="Fuelstations"><a href="#api-Fuelstations">API Methods - Fuelstations</a></li>
+                    <li data-group="Fuelstations" data-name="getClosureTurns" class="">
+                      <a href="#api-Fuelstations-getClosureTurns">getClosureTurns</a>
+                    </li>
+                    <li data-group="Fuelstations" data-name="getFuelstationsBySupplierId" class="">
+                      <a href="#api-Fuelstations-getFuelstationsBySupplierId">getFuelstationsBySupplierId</a>
+                    </li>
                   <li class="nav-header" data-group="Levels"><a href="#api-Levels">API Methods - Levels</a></li>
                     <li data-group="Levels" data-name="getExportLevels" class="">
                       <a href="#api-Levels-getExportLevels">getExportLevels</a>
@@ -1674,7 +1720,7 @@ ul.nav-tabs {
         <div id="header">
           <div id="api-_">
             <h2 id="welcome-to-apidoc">API and SDK Documentation</h2>
-              <div class="app-desc">Version: 1.5</div>
+              <div class="app-desc">Version: 1.6.1</div>
             <hr>
             <div id="app-description" class="app-desc">
                 <h1>Overview import export api documentation</h1>
@@ -2657,6 +2703,1527 @@ Turn number. User 0 for closure_type &quot;day&quot; or &quot;pc&quot;.
                                   </script>
                                 </div>
                                 <input id='responses-Closures-getExportClosureIscodeDateClosureTypeTurn-500-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                  </section>
+                <section id="api-Fuelstations">
+                  <h1>Fuelstations</h1>
+                    <div id="api-Fuelstations-getClosureTurns">
+                      <article id="api-Fuelstations-getClosureTurns-0" data-group="User" data-name="getClosureTurns" data-version="0">
+                        <div class="pull-left">
+                          <h1>getClosureTurns</h1>
+                          <p>Get closure turns</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Get all closure turns</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/export/closure/turns</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Fuelstations-getClosureTurns-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getClosureTurns-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getClosureTurns-0-dart">Dart</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getClosureTurns-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Fuelstations-getClosureTurns-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Fuelstations-getClosureTurns-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getClosureTurns-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Fuelstations-getClosureTurns-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Fuelstations-getClosureTurns-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getClosureTurns-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getClosureTurns-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getClosureTurns-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getClosureTurns-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Fuelstations-getClosureTurns-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ \
+ \
+ -H "Accept: application/json" \
+ "https://mxp-import-export-ov.dev.icadsistemi.com/v1/export/closure/turns?fuelstation_id=fuelstationId_example&closure_date=closureDate_example&closure_type=closureType_example"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Fuelstations-getClosureTurns-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.FuelstationsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class FuelstationsApiExample {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        // Configure OAuth2 access token for authorization: production
+        OAuth production = (OAuth) defaultClient.getAuthentication("production");
+        production.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure OAuth2 access token for authorization: develop
+        OAuth develop = (OAuth) defaultClient.getAuthentication("develop");
+        develop.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Create an instance of the API class
+        FuelstationsApi apiInstance = new FuelstationsApi();
+        String fuelstationId = fuelstationId_example; // String | fuelstation identifier
+        String closureDate = closureDate_example; // String | format "2023-01-02"
+        String closureType = closureType_example; // String | type "day", "turn" or "pc"
+
+        try {
+            array[get_closure_turns_200_response_inner] result = apiInstance.getClosureTurns(fuelstationId, closureDate, closureType);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuelstationsApi#getClosureTurns");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Fuelstations-getClosureTurns-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final String fuelstationId = new String(); // String | fuelstation identifier
+final String closureDate = new String(); // String | format "2023-01-02"
+final String closureType = new String(); // String | type "day", "turn" or "pc"
+
+try {
+    final result = await api_instance.getClosureTurns(fuelstationId, closureDate, closureType);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->getClosureTurns: $e\n');
+}
+
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Fuelstations-getClosureTurns-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.FuelstationsApi;
+
+public class FuelstationsApiExample {
+    public static void main(String[] args) {
+        FuelstationsApi apiInstance = new FuelstationsApi();
+        String fuelstationId = fuelstationId_example; // String | fuelstation identifier
+        String closureDate = closureDate_example; // String | format "2023-01-02"
+        String closureType = closureType_example; // String | type "day", "turn" or "pc"
+
+        try {
+            array[get_closure_turns_200_response_inner] result = apiInstance.getClosureTurns(fuelstationId, closureDate, closureType);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuelstationsApi#getClosureTurns");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Fuelstations-getClosureTurns-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Fuelstations-getClosureTurns-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: production)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: develop)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+// Create an instance of the API class
+FuelstationsApi *apiInstance = [[FuelstationsApi alloc] init];
+String *fuelstationId = fuelstationId_example; // fuelstation identifier (optional) (default to null)
+String *closureDate = closureDate_example; // format "2023-01-02" (optional) (default to null)
+String *closureType = closureType_example; // type "day", "turn" or "pc" (optional) (default to null)
+
+// Get closure turns
+[apiInstance getClosureTurnsWith:fuelstationId
+    closureDate:closureDate
+    closureType:closureType
+              completionHandler: ^(array[get_closure_turns_200_response_inner] output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Fuelstations-getClosureTurns-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ImportExportOverview = require('import_export_overview');
+var defaultClient = ImportExportOverview.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: production
+var production = defaultClient.authentications['production'];
+production.accessToken = "YOUR ACCESS TOKEN";
+
+// Configure OAuth2 access token for authorization: develop
+var develop = defaultClient.authentications['develop'];
+develop.accessToken = "YOUR ACCESS TOKEN";
+
+// Create an instance of the API class
+var api = new ImportExportOverview.FuelstationsApi()
+var opts = {
+  'fuelstationId': fuelstationId_example, // {String} fuelstation identifier
+  'closureDate': closureDate_example, // {String} format "2023-01-02"
+  'closureType': closureType_example // {String} type "day", "turn" or "pc"
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getClosureTurns(opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Fuelstations-getClosureTurns-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Fuelstations-getClosureTurns-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getClosureTurnsExample
+    {
+        public void main()
+        {
+            // Configure OAuth2 access token for authorization: production
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure OAuth2 access token for authorization: develop
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            // Create an instance of the API class
+            var apiInstance = new FuelstationsApi();
+            var fuelstationId = fuelstationId_example;  // String | fuelstation identifier (optional)  (default to null)
+            var closureDate = closureDate_example;  // String | format "2023-01-02" (optional)  (default to null)
+            var closureType = closureType_example;  // String | type "day", "turn" or "pc" (optional)  (default to null)
+
+            try {
+                // Get closure turns
+                array[get_closure_turns_200_response_inner] result = apiInstance.getClosureTurns(fuelstationId, closureDate, closureType);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling FuelstationsApi.getClosureTurns: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Fuelstations-getClosureTurns-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: production
+OpenAPITools\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: develop
+OpenAPITools\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\FuelstationsApi();
+$fuelstationId = fuelstationId_example; // String | fuelstation identifier
+$closureDate = closureDate_example; // String | format "2023-01-02"
+$closureType = closureType_example; // String | type "day", "turn" or "pc"
+
+try {
+    $result = $api_instance->getClosureTurns($fuelstationId, $closureDate, $closureType);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FuelstationsApi->getClosureTurns: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Fuelstations-getClosureTurns-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::FuelstationsApi;
+
+# Configure OAuth2 access token for authorization: production
+$WWW::OPenAPIClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
+
+# Configure OAuth2 access token for authorization: develop
+$WWW::OPenAPIClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::FuelstationsApi->new();
+my $fuelstationId = fuelstationId_example; # String | fuelstation identifier
+my $closureDate = closureDate_example; # String | format "2023-01-02"
+my $closureType = closureType_example; # String | type "day", "turn" or "pc"
+
+eval {
+    my $result = $api_instance->getClosureTurns(fuelstationId => $fuelstationId, closureDate => $closureDate, closureType => $closureType);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling FuelstationsApi->getClosureTurns: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Fuelstations-getClosureTurns-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: production
+openapi_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure OAuth2 access token for authorization: develop
+openapi_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Create an instance of the API class
+api_instance = openapi_client.FuelstationsApi()
+fuelstationId = fuelstationId_example # String | fuelstation identifier (optional) (default to null)
+closureDate = closureDate_example # String | format "2023-01-02" (optional) (default to null)
+closureType = closureType_example # String | type "day", "turn" or "pc" (optional) (default to null)
+
+try:
+    # Get closure turns
+    api_response = api_instance.get_closure_turns(fuelstationId=fuelstationId, closureDate=closureDate, closureType=closureType)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling FuelstationsApi->getClosureTurns: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Fuelstations-getClosureTurns-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate FuelstationsApi;
+
+pub fn main() {
+    let fuelstationId = fuelstationId_example; // String
+    let closureDate = closureDate_example; // String
+    let closureType = closureType_example; // String
+
+    let mut context = FuelstationsApi::Context::default();
+    let result = client.getClosureTurns(fuelstationId, closureDate, closureType, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">fuelstation_id</td>
+<td>
+
+
+    <div id="d2e199_getClosureTurns_fuelstationId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+fuelstation identifier
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">closure_date</td>
+<td>
+
+
+    <div id="d2e199_getClosureTurns_closureDate">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+format &quot;2023-01-02&quot;
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">closure_type</td>
+<td>
+
+
+    <div id="d2e199_getClosureTurns_closureType">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description marked">
+type &quot;day&quot;, &quot;turn&quot; or &quot;pc&quot;
+                    </div>
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Fuelstations-getClosureTurns-title-200"></h3>
+                            <p id="examples-Fuelstations-getClosureTurns-description-200" class="marked"></p>
+                            <script>
+                              var responseFuelstations200_description = `OK`;
+                              var responseFuelstations200_description_break = responseFuelstations200_description.indexOf('\n');
+                              if (responseFuelstations200_description_break == -1) {
+                                $("#examples-Fuelstations-getClosureTurns-title-200").text("Status: 200 - " + responseFuelstations200_description);
+                              } else {
+                                $("#examples-Fuelstations-getClosureTurns-title-200").text("Status: 200 - " + responseFuelstations200_description.substring(0, responseFuelstations200_description_break));
+                                $("#examples-Fuelstations-getClosureTurns-description-200").html(responseFuelstations200_description.substring(responseFuelstations200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Fuelstations-getClosureTurns-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Fuelstations-getClosureTurns-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Fuelstations-getClosureTurns-200-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Fuelstations-getClosureTurns-200-schema">
+                                <div id="responses-Fuelstations-getClosureTurns-schema-200" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/get_closure_turns_200_response_inner"
+        },
+        "x-examples" : {
+          "Example 1" : [ {
+            "fuelStation_id" : 3255,
+            "start_datetime" : "2023-01-02T00:00:00Z",
+            "end_datetime" : "2023-01-02T23:59:59Z",
+            "turn" : 0,
+            "in_progress" : false
+          } ]
+        }
+      }
+    }
+  }
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Fuelstations-getClosureTurns-200-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Fuelstations-getClosureTurns-schema-200');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Fuelstations-getClosureTurns-200-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                            <h3 id="examples-Fuelstations-getClosureTurns-title-401"></h3>
+                            <p id="examples-Fuelstations-getClosureTurns-description-401" class="marked"></p>
+                            <script>
+                              var responseFuelstations401_description = `Unauthorized`;
+                              var responseFuelstations401_description_break = responseFuelstations401_description.indexOf('\n');
+                              if (responseFuelstations401_description_break == -1) {
+                                $("#examples-Fuelstations-getClosureTurns-title-401").text("Status: 401 - " + responseFuelstations401_description);
+                              } else {
+                                $("#examples-Fuelstations-getClosureTurns-title-401").text("Status: 401 - " + responseFuelstations401_description.substring(0, responseFuelstations401_description_break));
+                                $("#examples-Fuelstations-getClosureTurns-description-401").html(responseFuelstations401_description.substring(responseFuelstations401_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Fuelstations-getClosureTurns-401" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Fuelstations-getClosureTurns-401-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Fuelstations-getClosureTurns-401-schema">
+                                <div id="responses-Fuelstations-getClosureTurns-schema-401" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Unauthorized"
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Fuelstations-getClosureTurns-401-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Fuelstations-getClosureTurns-schema-401');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Fuelstations-getClosureTurns-401-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                            <h3 id="examples-Fuelstations-getClosureTurns-title-403"></h3>
+                            <p id="examples-Fuelstations-getClosureTurns-description-403" class="marked"></p>
+                            <script>
+                              var responseFuelstations403_description = `Forbidden`;
+                              var responseFuelstations403_description_break = responseFuelstations403_description.indexOf('\n');
+                              if (responseFuelstations403_description_break == -1) {
+                                $("#examples-Fuelstations-getClosureTurns-title-403").text("Status: 403 - " + responseFuelstations403_description);
+                              } else {
+                                $("#examples-Fuelstations-getClosureTurns-title-403").text("Status: 403 - " + responseFuelstations403_description.substring(0, responseFuelstations403_description_break));
+                                $("#examples-Fuelstations-getClosureTurns-description-403").html(responseFuelstations403_description.substring(responseFuelstations403_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Fuelstations-getClosureTurns-403" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Fuelstations-getClosureTurns-403-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Fuelstations-getClosureTurns-403-schema">
+                                <div id="responses-Fuelstations-getClosureTurns-schema-403" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Forbidden"
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Fuelstations-getClosureTurns-403-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Fuelstations-getClosureTurns-schema-403');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Fuelstations-getClosureTurns-403-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                            <h3 id="examples-Fuelstations-getClosureTurns-title-404"></h3>
+                            <p id="examples-Fuelstations-getClosureTurns-description-404" class="marked"></p>
+                            <script>
+                              var responseFuelstations404_description = `Not Found`;
+                              var responseFuelstations404_description_break = responseFuelstations404_description.indexOf('\n');
+                              if (responseFuelstations404_description_break == -1) {
+                                $("#examples-Fuelstations-getClosureTurns-title-404").text("Status: 404 - " + responseFuelstations404_description);
+                              } else {
+                                $("#examples-Fuelstations-getClosureTurns-title-404").text("Status: 404 - " + responseFuelstations404_description.substring(0, responseFuelstations404_description_break));
+                                $("#examples-Fuelstations-getClosureTurns-description-404").html(responseFuelstations404_description.substring(responseFuelstations404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Fuelstations-getClosureTurns-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Fuelstations-getClosureTurns-404-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Fuelstations-getClosureTurns-404-schema">
+                                <div id="responses-Fuelstations-getClosureTurns-schema-404" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Not Found"
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Fuelstations-getClosureTurns-404-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Fuelstations-getClosureTurns-schema-404');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Fuelstations-getClosureTurns-404-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                            <h3 id="examples-Fuelstations-getClosureTurns-title-422"></h3>
+                            <p id="examples-Fuelstations-getClosureTurns-description-422" class="marked"></p>
+                            <script>
+                              var responseFuelstations422_description = `Unprocessable Entity (WebDAV)`;
+                              var responseFuelstations422_description_break = responseFuelstations422_description.indexOf('\n');
+                              if (responseFuelstations422_description_break == -1) {
+                                $("#examples-Fuelstations-getClosureTurns-title-422").text("Status: 422 - " + responseFuelstations422_description);
+                              } else {
+                                $("#examples-Fuelstations-getClosureTurns-title-422").text("Status: 422 - " + responseFuelstations422_description.substring(0, responseFuelstations422_description_break));
+                                $("#examples-Fuelstations-getClosureTurns-description-422").html(responseFuelstations422_description.substring(responseFuelstations422_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Fuelstations-getClosureTurns-422" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Fuelstations-getClosureTurns-422-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Fuelstations-getClosureTurns-422-schema">
+                                <div id="responses-Fuelstations-getClosureTurns-schema-422" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Unprocessable Entity (WebDAV)"
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Fuelstations-getClosureTurns-422-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Fuelstations-getClosureTurns-schema-422');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Fuelstations-getClosureTurns-422-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                            <h3 id="examples-Fuelstations-getClosureTurns-title-500"></h3>
+                            <p id="examples-Fuelstations-getClosureTurns-description-500" class="marked"></p>
+                            <script>
+                              var responseFuelstations500_description = `Internal Server Error`;
+                              var responseFuelstations500_description_break = responseFuelstations500_description.indexOf('\n');
+                              if (responseFuelstations500_description_break == -1) {
+                                $("#examples-Fuelstations-getClosureTurns-title-500").text("Status: 500 - " + responseFuelstations500_description);
+                              } else {
+                                $("#examples-Fuelstations-getClosureTurns-title-500").text("Status: 500 - " + responseFuelstations500_description.substring(0, responseFuelstations500_description_break));
+                                $("#examples-Fuelstations-getClosureTurns-description-500").html(responseFuelstations500_description.substring(responseFuelstations500_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Fuelstations-getClosureTurns-500" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Fuelstations-getClosureTurns-500-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Fuelstations-getClosureTurns-500-schema">
+                                <div id="responses-Fuelstations-getClosureTurns-schema-500" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Internal Server Error"
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Fuelstations-getClosureTurns-500-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Fuelstations-getClosureTurns-schema-500');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Fuelstations-getClosureTurns-500-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Fuelstations-getFuelstationsBySupplierId">
+                      <article id="api-Fuelstations-getFuelstationsBySupplierId-0" data-group="User" data-name="getFuelstationsBySupplierId" data-version="0">
+                        <div class="pull-left">
+                          <h1>getFuelstationsBySupplierId</h1>
+                          <p>Get fuelstations by supplier id</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">Get Fuelstations by supplier id</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/export/fuelstations</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Fuelstations-getFuelstationsBySupplierId-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getFuelstationsBySupplierId-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getFuelstationsBySupplierId-0-dart">Dart</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getFuelstationsBySupplierId-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Fuelstations-getFuelstationsBySupplierId-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Fuelstations-getFuelstationsBySupplierId-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getFuelstationsBySupplierId-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Fuelstations-getFuelstationsBySupplierId-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Fuelstations-getFuelstationsBySupplierId-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getFuelstationsBySupplierId-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getFuelstationsBySupplierId-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getFuelstationsBySupplierId-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Fuelstations-getFuelstationsBySupplierId-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Fuelstations-getFuelstationsBySupplierId-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ \
+ \
+ -H "Accept: application/json" \
+ "https://mxp-import-export-ov.dev.icadsistemi.com/v1/export/fuelstations"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Fuelstations-getFuelstationsBySupplierId-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.FuelstationsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class FuelstationsApiExample {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        // Configure OAuth2 access token for authorization: production
+        OAuth production = (OAuth) defaultClient.getAuthentication("production");
+        production.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure OAuth2 access token for authorization: develop
+        OAuth develop = (OAuth) defaultClient.getAuthentication("develop");
+        develop.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Create an instance of the API class
+        FuelstationsApi apiInstance = new FuelstationsApi();
+
+        try {
+            array[get_fuelstations_by_supplier_id_200_response_inner] result = apiInstance.getFuelstationsBySupplierId();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuelstationsApi#getFuelstationsBySupplierId");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Fuelstations-getFuelstationsBySupplierId-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+
+try {
+    final result = await api_instance.getFuelstationsBySupplierId();
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->getFuelstationsBySupplierId: $e\n');
+}
+
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Fuelstations-getFuelstationsBySupplierId-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.FuelstationsApi;
+
+public class FuelstationsApiExample {
+    public static void main(String[] args) {
+        FuelstationsApi apiInstance = new FuelstationsApi();
+
+        try {
+            array[get_fuelstations_by_supplier_id_200_response_inner] result = apiInstance.getFuelstationsBySupplierId();
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling FuelstationsApi#getFuelstationsBySupplierId");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Fuelstations-getFuelstationsBySupplierId-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Fuelstations-getFuelstationsBySupplierId-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: production)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: develop)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+// Create an instance of the API class
+FuelstationsApi *apiInstance = [[FuelstationsApi alloc] init];
+
+// Get fuelstations by supplier id
+[apiInstance getFuelstationsBySupplierIdWithCompletionHandler: 
+              ^(array[get_fuelstations_by_supplier_id_200_response_inner] output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Fuelstations-getFuelstationsBySupplierId-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ImportExportOverview = require('import_export_overview');
+var defaultClient = ImportExportOverview.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: production
+var production = defaultClient.authentications['production'];
+production.accessToken = "YOUR ACCESS TOKEN";
+
+// Configure OAuth2 access token for authorization: develop
+var develop = defaultClient.authentications['develop'];
+develop.accessToken = "YOUR ACCESS TOKEN";
+
+// Create an instance of the API class
+var api = new ImportExportOverview.FuelstationsApi()
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getFuelstationsBySupplierId(callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Fuelstations-getFuelstationsBySupplierId-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Fuelstations-getFuelstationsBySupplierId-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getFuelstationsBySupplierIdExample
+    {
+        public void main()
+        {
+            // Configure OAuth2 access token for authorization: production
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure OAuth2 access token for authorization: develop
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            // Create an instance of the API class
+            var apiInstance = new FuelstationsApi();
+
+            try {
+                // Get fuelstations by supplier id
+                array[get_fuelstations_by_supplier_id_200_response_inner] result = apiInstance.getFuelstationsBySupplierId();
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling FuelstationsApi.getFuelstationsBySupplierId: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Fuelstations-getFuelstationsBySupplierId-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: production
+OpenAPITools\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: develop
+OpenAPITools\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\FuelstationsApi();
+
+try {
+    $result = $api_instance->getFuelstationsBySupplierId();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FuelstationsApi->getFuelstationsBySupplierId: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Fuelstations-getFuelstationsBySupplierId-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::FuelstationsApi;
+
+# Configure OAuth2 access token for authorization: production
+$WWW::OPenAPIClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
+
+# Configure OAuth2 access token for authorization: develop
+$WWW::OPenAPIClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::FuelstationsApi->new();
+
+eval {
+    my $result = $api_instance->getFuelstationsBySupplierId();
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling FuelstationsApi->getFuelstationsBySupplierId: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Fuelstations-getFuelstationsBySupplierId-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: production
+openapi_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure OAuth2 access token for authorization: develop
+openapi_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Create an instance of the API class
+api_instance = openapi_client.FuelstationsApi()
+
+try:
+    # Get fuelstations by supplier id
+    api_response = api_instance.get_fuelstations_by_supplier_id()
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling FuelstationsApi->getFuelstationsBySupplierId: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Fuelstations-getFuelstationsBySupplierId-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate FuelstationsApi;
+
+pub fn main() {
+
+    let mut context = FuelstationsApi::Context::default();
+    let result = client.getFuelstationsBySupplierId(&context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Fuelstations-getFuelstationsBySupplierId-title-200"></h3>
+                            <p id="examples-Fuelstations-getFuelstationsBySupplierId-description-200" class="marked"></p>
+                            <script>
+                              var responseFuelstations200_description = `OK`;
+                              var responseFuelstations200_description_break = responseFuelstations200_description.indexOf('\n');
+                              if (responseFuelstations200_description_break == -1) {
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-title-200").text("Status: 200 - " + responseFuelstations200_description);
+                              } else {
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-title-200").text("Status: 200 - " + responseFuelstations200_description.substring(0, responseFuelstations200_description_break));
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-description-200").html(responseFuelstations200_description.substring(responseFuelstations200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Fuelstations-getFuelstationsBySupplierId-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Fuelstations-getFuelstationsBySupplierId-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Fuelstations-getFuelstationsBySupplierId-200-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Fuelstations-getFuelstationsBySupplierId-200-schema">
+                                <div id="responses-Fuelstations-getFuelstationsBySupplierId-schema-200" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "type" : "array",
+        "items" : {
+          "$ref" : "#/components/schemas/get_fuelstations_by_supplier_id_200_response_inner"
+        },
+        "x-examples" : {
+          "Example 1" : [ {
+            "id" : 3255,
+            "iscode" : "IS380021",
+            "fuelstation_name" : "Due Carrare"
+          } ]
+        }
+      }
+    }
+  }
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Fuelstations-getFuelstationsBySupplierId-200-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Fuelstations-getFuelstationsBySupplierId-schema-200');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Fuelstations-getFuelstationsBySupplierId-200-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                            <h3 id="examples-Fuelstations-getFuelstationsBySupplierId-title-401"></h3>
+                            <p id="examples-Fuelstations-getFuelstationsBySupplierId-description-401" class="marked"></p>
+                            <script>
+                              var responseFuelstations401_description = `Unauthorized`;
+                              var responseFuelstations401_description_break = responseFuelstations401_description.indexOf('\n');
+                              if (responseFuelstations401_description_break == -1) {
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-title-401").text("Status: 401 - " + responseFuelstations401_description);
+                              } else {
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-title-401").text("Status: 401 - " + responseFuelstations401_description.substring(0, responseFuelstations401_description_break));
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-description-401").html(responseFuelstations401_description.substring(responseFuelstations401_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Fuelstations-getFuelstationsBySupplierId-401" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Fuelstations-getFuelstationsBySupplierId-401-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Fuelstations-getFuelstationsBySupplierId-401-schema">
+                                <div id="responses-Fuelstations-getFuelstationsBySupplierId-schema-401" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Unauthorized"
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Fuelstations-getFuelstationsBySupplierId-401-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Fuelstations-getFuelstationsBySupplierId-schema-401');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Fuelstations-getFuelstationsBySupplierId-401-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                            <h3 id="examples-Fuelstations-getFuelstationsBySupplierId-title-403"></h3>
+                            <p id="examples-Fuelstations-getFuelstationsBySupplierId-description-403" class="marked"></p>
+                            <script>
+                              var responseFuelstations403_description = `Forbidden`;
+                              var responseFuelstations403_description_break = responseFuelstations403_description.indexOf('\n');
+                              if (responseFuelstations403_description_break == -1) {
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-title-403").text("Status: 403 - " + responseFuelstations403_description);
+                              } else {
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-title-403").text("Status: 403 - " + responseFuelstations403_description.substring(0, responseFuelstations403_description_break));
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-description-403").html(responseFuelstations403_description.substring(responseFuelstations403_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Fuelstations-getFuelstationsBySupplierId-403" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Fuelstations-getFuelstationsBySupplierId-403-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Fuelstations-getFuelstationsBySupplierId-403-schema">
+                                <div id="responses-Fuelstations-getFuelstationsBySupplierId-schema-403" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Forbidden"
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Fuelstations-getFuelstationsBySupplierId-403-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Fuelstations-getFuelstationsBySupplierId-schema-403');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Fuelstations-getFuelstationsBySupplierId-403-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                            <h3 id="examples-Fuelstations-getFuelstationsBySupplierId-title-404"></h3>
+                            <p id="examples-Fuelstations-getFuelstationsBySupplierId-description-404" class="marked"></p>
+                            <script>
+                              var responseFuelstations404_description = `Not Found`;
+                              var responseFuelstations404_description_break = responseFuelstations404_description.indexOf('\n');
+                              if (responseFuelstations404_description_break == -1) {
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-title-404").text("Status: 404 - " + responseFuelstations404_description);
+                              } else {
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-title-404").text("Status: 404 - " + responseFuelstations404_description.substring(0, responseFuelstations404_description_break));
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-description-404").html(responseFuelstations404_description.substring(responseFuelstations404_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Fuelstations-getFuelstationsBySupplierId-404" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Fuelstations-getFuelstationsBySupplierId-404-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Fuelstations-getFuelstationsBySupplierId-404-schema">
+                                <div id="responses-Fuelstations-getFuelstationsBySupplierId-schema-404" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Not Found"
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Fuelstations-getFuelstationsBySupplierId-404-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Fuelstations-getFuelstationsBySupplierId-schema-404');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Fuelstations-getFuelstationsBySupplierId-404-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                            <h3 id="examples-Fuelstations-getFuelstationsBySupplierId-title-422"></h3>
+                            <p id="examples-Fuelstations-getFuelstationsBySupplierId-description-422" class="marked"></p>
+                            <script>
+                              var responseFuelstations422_description = `Unprocessable Entity (WebDAV)`;
+                              var responseFuelstations422_description_break = responseFuelstations422_description.indexOf('\n');
+                              if (responseFuelstations422_description_break == -1) {
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-title-422").text("Status: 422 - " + responseFuelstations422_description);
+                              } else {
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-title-422").text("Status: 422 - " + responseFuelstations422_description.substring(0, responseFuelstations422_description_break));
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-description-422").html(responseFuelstations422_description.substring(responseFuelstations422_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Fuelstations-getFuelstationsBySupplierId-422" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Fuelstations-getFuelstationsBySupplierId-422-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Fuelstations-getFuelstationsBySupplierId-422-schema">
+                                <div id="responses-Fuelstations-getFuelstationsBySupplierId-schema-422" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Unprocessable Entity (WebDAV)"
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Fuelstations-getFuelstationsBySupplierId-422-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Fuelstations-getFuelstationsBySupplierId-schema-422');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Fuelstations-getFuelstationsBySupplierId-422-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                            <h3 id="examples-Fuelstations-getFuelstationsBySupplierId-title-500"></h3>
+                            <p id="examples-Fuelstations-getFuelstationsBySupplierId-description-500" class="marked"></p>
+                            <script>
+                              var responseFuelstations500_description = `Internal Server Error`;
+                              var responseFuelstations500_description_break = responseFuelstations500_description.indexOf('\n');
+                              if (responseFuelstations500_description_break == -1) {
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-title-500").text("Status: 500 - " + responseFuelstations500_description);
+                              } else {
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-title-500").text("Status: 500 - " + responseFuelstations500_description.substring(0, responseFuelstations500_description_break));
+                                $("#examples-Fuelstations-getFuelstationsBySupplierId-description-500").html(responseFuelstations500_description.substring(responseFuelstations500_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Fuelstations-getFuelstationsBySupplierId-500" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Fuelstations-getFuelstationsBySupplierId-500-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Fuelstations-getFuelstationsBySupplierId-500-schema">
+                                <div id="responses-Fuelstations-getFuelstationsBySupplierId-schema-500" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Internal Server Error"
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Fuelstations-getFuelstationsBySupplierId-500-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Fuelstations-getFuelstationsBySupplierId-schema-500');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Fuelstations-getFuelstationsBySupplierId-500-schema-data' type='hidden' value=''></input>
                               </div>
                             </div>
                         </article>
