@@ -3560,7 +3560,7 @@ Turn number. User 0 for closure_type &quot;day&quot; or &quot;pc&quot;.
  \
  \
  -H "Accept: application/json" \
- "https://mxp-import-export-ov.dev.icadsistemi.com/v1/export/fuelstations"
+ "https://mxp-import-export-ov.dev.icadsistemi.com/v1/export/fuelstations?supplier_id=supplierId_example"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Fuelstations-getFuelstationsBySupplierId-0-java">
@@ -3586,9 +3586,10 @@ public class FuelstationsApiExample {
 
         // Create an instance of the API class
         FuelstationsApi apiInstance = new FuelstationsApi();
+        String supplierId = supplierId_example; // String | 
 
         try {
-            array[get_fuelstations_by_supplier_id_200_response_inner] result = apiInstance.getFuelstationsBySupplierId();
+            array[get_fuelstations_by_supplier_id_200_response_inner] result = apiInstance.getFuelstationsBySupplierId(supplierId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling FuelstationsApi#getFuelstationsBySupplierId");
@@ -3604,9 +3605,10 @@ public class FuelstationsApiExample {
 
 final api_instance = DefaultApi();
 
+final String supplierId = new String(); // String | 
 
 try {
-    final result = await api_instance.getFuelstationsBySupplierId();
+    final result = await api_instance.getFuelstationsBySupplierId(supplierId);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->getFuelstationsBySupplierId: $e\n');
@@ -3621,9 +3623,10 @@ try {
 public class FuelstationsApiExample {
     public static void main(String[] args) {
         FuelstationsApi apiInstance = new FuelstationsApi();
+        String supplierId = supplierId_example; // String | 
 
         try {
-            array[get_fuelstations_by_supplier_id_200_response_inner] result = apiInstance.getFuelstationsBySupplierId();
+            array[get_fuelstations_by_supplier_id_200_response_inner] result = apiInstance.getFuelstationsBySupplierId(supplierId);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling FuelstationsApi#getFuelstationsBySupplierId");
@@ -3648,10 +3651,11 @@ public class FuelstationsApiExample {
 
 // Create an instance of the API class
 FuelstationsApi *apiInstance = [[FuelstationsApi alloc] init];
+String *supplierId = supplierId_example; //  (default to null)
 
 // Get fuelstations by supplier id
-[apiInstance getFuelstationsBySupplierIdWithCompletionHandler: 
-              ^(array[get_fuelstations_by_supplier_id_200_response_inner] output, NSError* error) {
+[apiInstance getFuelstationsBySupplierIdWith:supplierId
+              completionHandler: ^(array[get_fuelstations_by_supplier_id_200_response_inner] output, NSError* error) {
     if (output) {
         NSLog(@"%@", output);
     }
@@ -3676,6 +3680,8 @@ develop.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
 var api = new ImportExportOverview.FuelstationsApi()
+var supplierId = supplierId_example; // {String} 
+
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -3683,7 +3689,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getFuelstationsBySupplierId(callback);
+api.getFuelstationsBySupplierId(supplierId, callback);
 </code></pre>
                             </div>
 
@@ -3710,10 +3716,11 @@ namespace Example
 
             // Create an instance of the API class
             var apiInstance = new FuelstationsApi();
+            var supplierId = supplierId_example;  // String |  (default to null)
 
             try {
                 // Get fuelstations by supplier id
-                array[get_fuelstations_by_supplier_id_200_response_inner] result = apiInstance.getFuelstationsBySupplierId();
+                array[get_fuelstations_by_supplier_id_200_response_inner] result = apiInstance.getFuelstationsBySupplierId(supplierId);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling FuelstationsApi.getFuelstationsBySupplierId: " + e.Message );
@@ -3736,9 +3743,10 @@ OpenAPITools\Client\Configuration::getDefaultConfiguration()->setAccessToken('YO
 
 // Create an instance of the API class
 $api_instance = new OpenAPITools\Client\Api\FuelstationsApi();
+$supplierId = supplierId_example; // String | 
 
 try {
-    $result = $api_instance->getFuelstationsBySupplierId();
+    $result = $api_instance->getFuelstationsBySupplierId($supplierId);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FuelstationsApi->getFuelstationsBySupplierId: ', $e->getMessage(), PHP_EOL;
@@ -3759,9 +3767,10 @@ $WWW::OPenAPIClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 # Create an instance of the API class
 my $api_instance = WWW::OPenAPIClient::FuelstationsApi->new();
+my $supplierId = supplierId_example; # String | 
 
 eval {
-    my $result = $api_instance->getFuelstationsBySupplierId();
+    my $result = $api_instance->getFuelstationsBySupplierId(supplierId => $supplierId);
     print Dumper($result);
 };
 if ($@) {
@@ -3784,10 +3793,11 @@ openapi_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Create an instance of the API class
 api_instance = openapi_client.FuelstationsApi()
+supplierId = supplierId_example # String |  (default to null)
 
 try:
     # Get fuelstations by supplier id
-    api_response = api_instance.get_fuelstations_by_supplier_id()
+    api_response = api_instance.get_fuelstations_by_supplier_id(supplierId)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling FuelstationsApi->getFuelstationsBySupplierId: %s\n" % e)</code></pre>
@@ -3797,9 +3807,10 @@ except ApiException as e:
                               <pre class="prettyprint"><code class="language-rust">extern crate FuelstationsApi;
 
 pub fn main() {
+    let supplierId = supplierId_example; // String
 
     let mut context = FuelstationsApi::Context::default();
-    let result = client.getFuelstationsBySupplierId(&context).wait();
+    let result = client.getFuelstationsBySupplierId(supplierId, &context).wait();
 
     println!("{:?}", result);
 }
@@ -3818,6 +3829,33 @@ pub fn main() {
 
 
 
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">supplier_id*</td>
+<td>
+
+
+    <div id="d2e199_getFuelstationsBySupplierId_supplierId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
 
                           <h2>Responses</h2>
                             <h3 id="examples-Fuelstations-getFuelstationsBySupplierId-title-200"></h3>
