@@ -130,6 +130,12 @@ paths:
       x-internal: false
       description: Get Fuelstations by supplier id
       operationId: get-fuelstations-by-supplier-id
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: supplier_id
+          required: true
     parameters: []
   /export/circuits/fuelstations:
     get:
