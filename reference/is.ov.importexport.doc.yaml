@@ -625,6 +625,62 @@ paths:
         - closures
       x-internal: false
     parameters: []
+  /export/supplies/payments:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/supplies'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '422':
+          description: Unprocessable Entity (WebDAV)
+        '500':
+          description: Internal Server Error
+      operationId: get-supplies-payments
+      description: |-
+        retrieve data supply payments.
+        in input if store_id is valorized then fuelstation_code can be null, other hand if fuelstation_code is valorized then store_id can be null
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: store_id
+        - schema:
+            type: string
+          in: query
+          name: fuelstation_code
+        - schema:
+            type: string
+          in: query
+          name: start_datetime
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: end_datetime
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: is_period_date
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: page
+        - schema:
+            type: string
+          in: query
+          name: page_size
+    parameters: []
 components:
   schemas:
     sold:
@@ -1009,6 +1065,73 @@ components:
           x-stoplight:
             id: 6i5ox1il162ru
           description: fuel level
+    supplies:
+      type: object
+      x-examples:
+        Example 1:
+          id: 388088591
+          store_id: IS200469
+          transaction_number: 70413
+          date_time: '2021-10-08T00:01:46'
+          unit_price: 1.769
+          volume: 2.83
+          amount: 5
+          operative_mode: '3'
+          ele_totalizer: 1463548
+          mec_totalizer: 1463548
+          transaction_id: 131259
+          local_card: ''
+          invoice: false
+          product_name: Verde
+          product_code: 1
+          num_pump: 1
+          num_nozzle: 4
+          price_level: '4'
+          mode: OPT_BNA
+          payments: []
+      properties:
+        id:
+          type: integer
+        store_id:
+          type: string
+        transaction_number:
+          type: integer
+        date_time:
+          type: string
+        unit_price:
+          type: number
+        volume:
+          type: number
+        amount:
+          type: integer
+        operative_mode:
+          type: string
+        ele_totalizer:
+          type: integer
+        mec_totalizer:
+          type: integer
+        transaction_id:
+          type: integer
+        local_card:
+          type: string
+        invoice:
+          type: boolean
+        product_name:
+          type: string
+        product_code:
+          type: integer
+        num_pump:
+          type: integer
+        num_nozzle:
+          type: integer
+        price_level:
+          type: string
+        mode:
+          type: string
+        payments:
+          type: array
+          items:
+            $ref: '#/components/schemas/payment'
   securitySchemes:
     develop:
       type: oauth2
