@@ -1616,6 +1616,97 @@ ul.nav-tabs {
     "id" : "oglqf99oodwk9"
   }
 };
+    defs["supplies"] = {
+  "properties" : {
+    "id" : {
+      "type" : "integer"
+    },
+    "store_id" : {
+      "type" : "string"
+    },
+    "transaction_number" : {
+      "type" : "integer"
+    },
+    "date_time" : {
+      "type" : "string"
+    },
+    "unit_price" : {
+      "type" : "number"
+    },
+    "volume" : {
+      "type" : "number"
+    },
+    "amount" : {
+      "type" : "integer"
+    },
+    "operative_mode" : {
+      "type" : "string"
+    },
+    "ele_totalizer" : {
+      "type" : "integer"
+    },
+    "mec_totalizer" : {
+      "type" : "integer"
+    },
+    "transaction_id" : {
+      "type" : "integer"
+    },
+    "local_card" : {
+      "type" : "string"
+    },
+    "invoice" : {
+      "type" : "boolean"
+    },
+    "product_name" : {
+      "type" : "string"
+    },
+    "product_code" : {
+      "type" : "integer"
+    },
+    "num_pump" : {
+      "type" : "integer"
+    },
+    "num_nozzle" : {
+      "type" : "integer"
+    },
+    "price_level" : {
+      "type" : "string"
+    },
+    "mode" : {
+      "type" : "string"
+    },
+    "payments" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/components/schemas/payment"
+      }
+    }
+  },
+  "x-examples" : {
+    "Example 1" : {
+      "id" : 388088591,
+      "store_id" : "IS200469",
+      "transaction_number" : 70413,
+      "date_time" : "2021-10-08T00:01:46",
+      "unit_price" : 1.769,
+      "volume" : 2.83,
+      "amount" : 5,
+      "operative_mode" : "3",
+      "ele_totalizer" : 1463548,
+      "mec_totalizer" : 1463548,
+      "transaction_id" : 131259,
+      "local_card" : "",
+      "invoice" : false,
+      "product_name" : "Verde",
+      "product_code" : 1,
+      "num_pump" : 1,
+      "num_nozzle" : 4,
+      "price_level" : "4",
+      "mode" : "OPT_BNA",
+      "payments" : [ ]
+    }
+  }
+};
     defs["totalizer"] = {
   "title" : "totalizers",
   "properties" : {
@@ -1698,6 +1789,10 @@ ul.nav-tabs {
                     </li>
                     <li data-group="Closures" data-name="getExportClosureIscodeDateClosureTypeTurn" class="">
                       <a href="#api-Closures-getExportClosureIscodeDateClosureTypeTurn">getExportClosureIscodeDateClosureTypeTurn</a>
+                    </li>
+                  <li class="nav-header" data-group="Default"><a href="#api-Default">API Methods - Default</a></li>
+                    <li data-group="Default" data-name="getSuppliesPayments" class="">
+                      <a href="#api-Default-getSuppliesPayments">getSuppliesPayments</a>
                     </li>
                   <li class="nav-header" data-group="Fuelstations"><a href="#api-Fuelstations">API Methods - Fuelstations</a></li>
                     <li data-group="Fuelstations" data-name="getFuelstationsBySupplierId" class="">
@@ -3514,6 +3609,857 @@ Turn number. User 0 for closure_type &quot;day&quot; or &quot;pc&quot;.
                                   </script>
                                 </div>
                                 <input id='responses-Closures-getExportClosureIscodeDateClosureTypeTurn-500-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                        </article>
+                      </div>
+                      <hr>
+                  </section>
+                <section id="api-Default">
+                  <h1>Default</h1>
+                    <div id="api-Default-getSuppliesPayments">
+                      <article id="api-Default-getSuppliesPayments-0" data-group="User" data-name="getSuppliesPayments" data-version="0">
+                        <div class="pull-left">
+                          <h1>getSuppliesPayments</h1>
+                          <p>Your GET endpoint</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked">retrieve data supply payments.
+in input if store_id is valorized then fuelstation_code can be null, other hand if fuelstation_code is valorized then store_id can be null</p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/export/supplies/payments</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Default-getSuppliesPayments-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Default-getSuppliesPayments-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Default-getSuppliesPayments-0-dart">Dart</a></li>
+                          <li class=""><a href="#examples-Default-getSuppliesPayments-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Default-getSuppliesPayments-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Default-getSuppliesPayments-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Default-getSuppliesPayments-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Default-getSuppliesPayments-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Default-getSuppliesPayments-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Default-getSuppliesPayments-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Default-getSuppliesPayments-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Default-getSuppliesPayments-0-python">Python</a></li>
+                          <li class=""><a href="#examples-Default-getSuppliesPayments-0-rust">Rust</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Default-getSuppliesPayments-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET \
+ \
+ \
+ -H "Accept: application/json" \
+ "https://mxp-import-export-ov.dev.icadsistemi.com/v1/export/supplies/payments?store_id=storeId_example&fuelstation_code=fuelstationCode_example&start_datetime=startDatetime_example&end_datetime=endDatetime_example&is_period_date=isPeriodDate_example&page=page_example&page_size=pageSize_example"
+</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Default-getSuppliesPayments-0-java">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.*;
+import org.openapitools.client.auth.*;
+import org.openapitools.client.model.*;
+import org.openapitools.client.api.DefaultApi;
+
+import java.io.File;
+import java.util.*;
+
+public class DefaultApiExample {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+        // Configure OAuth2 access token for authorization: production
+        OAuth production = (OAuth) defaultClient.getAuthentication("production");
+        production.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Configure OAuth2 access token for authorization: develop
+        OAuth develop = (OAuth) defaultClient.getAuthentication("develop");
+        develop.setAccessToken("YOUR ACCESS TOKEN");
+
+        // Create an instance of the API class
+        DefaultApi apiInstance = new DefaultApi();
+        String startDatetime = startDatetime_example; // String | 
+        String endDatetime = endDatetime_example; // String | 
+        String isPeriodDate = isPeriodDate_example; // String | 
+        String storeId = storeId_example; // String | 
+        String fuelstationCode = fuelstationCode_example; // String | 
+        String page = page_example; // String | 
+        String pageSize = pageSize_example; // String | 
+
+        try {
+            supplies result = apiInstance.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, storeId, fuelstationCode, page, pageSize);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#getSuppliesPayments");
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-getSuppliesPayments-0-dart">
+                            <pre class="prettyprint"><code class="language-dart">import 'package:openapi/api.dart';
+
+final api_instance = DefaultApi();
+
+final String startDatetime = new String(); // String | 
+final String endDatetime = new String(); // String | 
+final String isPeriodDate = new String(); // String | 
+final String storeId = new String(); // String | 
+final String fuelstationCode = new String(); // String | 
+final String page = new String(); // String | 
+final String pageSize = new String(); // String | 
+
+try {
+    final result = await api_instance.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, storeId, fuelstationCode, page, pageSize);
+    print(result);
+} catch (e) {
+    print('Exception when calling DefaultApi->getSuppliesPayments: $e\n');
+}
+
+</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Default-getSuppliesPayments-0-android">
+                            <pre class="prettyprint"><code class="language-java">import org.openapitools.client.api.DefaultApi;
+
+public class DefaultApiExample {
+    public static void main(String[] args) {
+        DefaultApi apiInstance = new DefaultApi();
+        String startDatetime = startDatetime_example; // String | 
+        String endDatetime = endDatetime_example; // String | 
+        String isPeriodDate = isPeriodDate_example; // String | 
+        String storeId = storeId_example; // String | 
+        String fuelstationCode = fuelstationCode_example; // String | 
+        String page = page_example; // String | 
+        String pageSize = pageSize_example; // String | 
+
+        try {
+            supplies result = apiInstance.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, storeId, fuelstationCode, page, pageSize);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DefaultApi#getSuppliesPayments");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Default-getSuppliesPayments-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Default-getSuppliesPayments-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">Configuration *apiConfig = [Configuration sharedConfig];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: production)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+// Configure OAuth2 access token for authorization: (authentication scheme: develop)
+[apiConfig setAccessToken:@"YOUR_ACCESS_TOKEN"];
+
+
+// Create an instance of the API class
+DefaultApi *apiInstance = [[DefaultApi alloc] init];
+String *startDatetime = startDatetime_example; //  (default to null)
+String *endDatetime = endDatetime_example; //  (default to null)
+String *isPeriodDate = isPeriodDate_example; //  (default to null)
+String *storeId = storeId_example; //  (optional) (default to null)
+String *fuelstationCode = fuelstationCode_example; //  (optional) (default to null)
+String *page = page_example; //  (optional) (default to null)
+String *pageSize = pageSize_example; //  (optional) (default to null)
+
+// Your GET endpoint
+[apiInstance getSuppliesPaymentsWith:startDatetime
+    endDatetime:endDatetime
+    isPeriodDate:isPeriodDate
+    storeId:storeId
+    fuelstationCode:fuelstationCode
+    page:page
+    pageSize:pageSize
+              completionHandler: ^(supplies output, NSError* error) {
+    if (output) {
+        NSLog(@"%@", output);
+    }
+    if (error) {
+        NSLog(@"Error: %@", error);
+    }
+}];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getSuppliesPayments-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ImportExportOverview = require('import_export_overview');
+var defaultClient = ImportExportOverview.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: production
+var production = defaultClient.authentications['production'];
+production.accessToken = "YOUR ACCESS TOKEN";
+
+// Configure OAuth2 access token for authorization: develop
+var develop = defaultClient.authentications['develop'];
+develop.accessToken = "YOUR ACCESS TOKEN";
+
+// Create an instance of the API class
+var api = new ImportExportOverview.DefaultApi()
+var startDatetime = startDatetime_example; // {String} 
+var endDatetime = endDatetime_example; // {String} 
+var isPeriodDate = isPeriodDate_example; // {String} 
+var opts = {
+  'storeId': storeId_example, // {String} 
+  'fuelstationCode': fuelstationCode_example, // {String} 
+  'page': page_example, // {String} 
+  'pageSize': pageSize_example // {String} 
+};
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, opts, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Default-getSuppliesPayments-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Default-getSuppliesPayments-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using Org.OpenAPITools.Api;
+using Org.OpenAPITools.Client;
+using Org.OpenAPITools.Model;
+
+namespace Example
+{
+    public class getSuppliesPaymentsExample
+    {
+        public void main()
+        {
+            // Configure OAuth2 access token for authorization: production
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+            // Configure OAuth2 access token for authorization: develop
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            // Create an instance of the API class
+            var apiInstance = new DefaultApi();
+            var startDatetime = startDatetime_example;  // String |  (default to null)
+            var endDatetime = endDatetime_example;  // String |  (default to null)
+            var isPeriodDate = isPeriodDate_example;  // String |  (default to null)
+            var storeId = storeId_example;  // String |  (optional)  (default to null)
+            var fuelstationCode = fuelstationCode_example;  // String |  (optional)  (default to null)
+            var page = page_example;  // String |  (optional)  (default to null)
+            var pageSize = pageSize_example;  // String |  (optional)  (default to null)
+
+            try {
+                // Your GET endpoint
+                supplies result = apiInstance.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, storeId, fuelstationCode, page, pageSize);
+                Debug.WriteLine(result);
+            } catch (Exception e) {
+                Debug.Print("Exception when calling DefaultApi.getSuppliesPayments: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getSuppliesPayments-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure OAuth2 access token for authorization: production
+OpenAPITools\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: develop
+OpenAPITools\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Create an instance of the API class
+$api_instance = new OpenAPITools\Client\Api\DefaultApi();
+$startDatetime = startDatetime_example; // String | 
+$endDatetime = endDatetime_example; // String | 
+$isPeriodDate = isPeriodDate_example; // String | 
+$storeId = storeId_example; // String | 
+$fuelstationCode = fuelstationCode_example; // String | 
+$page = page_example; // String | 
+$pageSize = pageSize_example; // String | 
+
+try {
+    $result = $api_instance->getSuppliesPayments($startDatetime, $endDatetime, $isPeriodDate, $storeId, $fuelstationCode, $page, $pageSize);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DefaultApi->getSuppliesPayments: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getSuppliesPayments-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::OPenAPIClient::Configuration;
+use WWW::OPenAPIClient::DefaultApi;
+
+# Configure OAuth2 access token for authorization: production
+$WWW::OPenAPIClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
+
+# Configure OAuth2 access token for authorization: develop
+$WWW::OPenAPIClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
+
+# Create an instance of the API class
+my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
+my $startDatetime = startDatetime_example; # String | 
+my $endDatetime = endDatetime_example; # String | 
+my $isPeriodDate = isPeriodDate_example; # String | 
+my $storeId = storeId_example; # String | 
+my $fuelstationCode = fuelstationCode_example; # String | 
+my $page = page_example; # String | 
+my $pageSize = pageSize_example; # String | 
+
+eval {
+    my $result = $api_instance->getSuppliesPayments(startDatetime => $startDatetime, endDatetime => $endDatetime, isPeriodDate => $isPeriodDate, storeId => $storeId, fuelstationCode => $fuelstationCode, page => $page, pageSize => $pageSize);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling DefaultApi->getSuppliesPayments: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getSuppliesPayments-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import openapi_client
+from openapi_client.rest import ApiException
+from pprint import pprint
+
+# Configure OAuth2 access token for authorization: production
+openapi_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Configure OAuth2 access token for authorization: develop
+openapi_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+# Create an instance of the API class
+api_instance = openapi_client.DefaultApi()
+startDatetime = startDatetime_example # String |  (default to null)
+endDatetime = endDatetime_example # String |  (default to null)
+isPeriodDate = isPeriodDate_example # String |  (default to null)
+storeId = storeId_example # String |  (optional) (default to null)
+fuelstationCode = fuelstationCode_example # String |  (optional) (default to null)
+page = page_example # String |  (optional) (default to null)
+pageSize = pageSize_example # String |  (optional) (default to null)
+
+try:
+    # Your GET endpoint
+    api_response = api_instance.get_supplies_payments(startDatetime, endDatetime, isPeriodDate, storeId=storeId, fuelstationCode=fuelstationCode, page=page, pageSize=pageSize)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling DefaultApi->getSuppliesPayments: %s\n" % e)</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Default-getSuppliesPayments-0-rust">
+                              <pre class="prettyprint"><code class="language-rust">extern crate DefaultApi;
+
+pub fn main() {
+    let startDatetime = startDatetime_example; // String
+    let endDatetime = endDatetime_example; // String
+    let isPeriodDate = isPeriodDate_example; // String
+    let storeId = storeId_example; // String
+    let fuelstationCode = fuelstationCode_example; // String
+    let page = page_example; // String
+    let pageSize = pageSize_example; // String
+
+    let mut context = DefaultApi::Context::default();
+    let result = client.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, storeId, fuelstationCode, page, pageSize, &context).wait();
+
+    println!("{:?}", result);
+}
+</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Scopes</h2>
+                          <table>
+                            
+                          </table>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">store_id</td>
+<td>
+
+
+    <div id="d2e199_getSuppliesPayments_storeId">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">fuelstation_code</td>
+<td>
+
+
+    <div id="d2e199_getSuppliesPayments_fuelstationCode">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">start_datetime*</td>
+<td>
+
+
+    <div id="d2e199_getSuppliesPayments_startDatetime">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">end_datetime*</td>
+<td>
+
+
+    <div id="d2e199_getSuppliesPayments_endDatetime">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">is_period_date*</td>
+<td>
+
+
+    <div id="d2e199_getSuppliesPayments_isPeriodDate">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">page</td>
+<td>
+
+
+    <div id="d2e199_getSuppliesPayments_page">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">page_size</td>
+<td>
+
+
+    <div id="d2e199_getSuppliesPayments_pageSize">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3 id="examples-Default-getSuppliesPayments-title-200"></h3>
+                            <p id="examples-Default-getSuppliesPayments-description-200" class="marked"></p>
+                            <script>
+                              var responseDefault200_description = `OK`;
+                              var responseDefault200_description_break = responseDefault200_description.indexOf('\n');
+                              if (responseDefault200_description_break == -1) {
+                                $("#examples-Default-getSuppliesPayments-title-200").text("Status: 200 - " + responseDefault200_description);
+                              } else {
+                                $("#examples-Default-getSuppliesPayments-title-200").text("Status: 200 - " + responseDefault200_description.substring(0, responseDefault200_description_break));
+                                $("#examples-Default-getSuppliesPayments-description-200").html(responseDefault200_description.substring(responseDefault200_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Default-getSuppliesPayments-200" class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-Default-getSuppliesPayments-200-schema">Schema</a>
+                                </li>
+
+
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Default-getSuppliesPayments-200-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Default-getSuppliesPayments-200-schema">
+                                <div id="responses-Default-getSuppliesPayments-schema-200" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "OK",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/supplies"
+      }
+    }
+  }
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Default-getSuppliesPayments-200-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Default-getSuppliesPayments-schema-200');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Default-getSuppliesPayments-200-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                            <h3 id="examples-Default-getSuppliesPayments-title-401"></h3>
+                            <p id="examples-Default-getSuppliesPayments-description-401" class="marked"></p>
+                            <script>
+                              var responseDefault401_description = `Unauthorized`;
+                              var responseDefault401_description_break = responseDefault401_description.indexOf('\n');
+                              if (responseDefault401_description_break == -1) {
+                                $("#examples-Default-getSuppliesPayments-title-401").text("Status: 401 - " + responseDefault401_description);
+                              } else {
+                                $("#examples-Default-getSuppliesPayments-title-401").text("Status: 401 - " + responseDefault401_description.substring(0, responseDefault401_description_break));
+                                $("#examples-Default-getSuppliesPayments-description-401").html(responseDefault401_description.substring(responseDefault401_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Default-getSuppliesPayments-401" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Default-getSuppliesPayments-401-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Default-getSuppliesPayments-401-schema">
+                                <div id="responses-Default-getSuppliesPayments-schema-401" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Unauthorized"
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Default-getSuppliesPayments-401-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Default-getSuppliesPayments-schema-401');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Default-getSuppliesPayments-401-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                            <h3 id="examples-Default-getSuppliesPayments-title-403"></h3>
+                            <p id="examples-Default-getSuppliesPayments-description-403" class="marked"></p>
+                            <script>
+                              var responseDefault403_description = `Forbidden`;
+                              var responseDefault403_description_break = responseDefault403_description.indexOf('\n');
+                              if (responseDefault403_description_break == -1) {
+                                $("#examples-Default-getSuppliesPayments-title-403").text("Status: 403 - " + responseDefault403_description);
+                              } else {
+                                $("#examples-Default-getSuppliesPayments-title-403").text("Status: 403 - " + responseDefault403_description.substring(0, responseDefault403_description_break));
+                                $("#examples-Default-getSuppliesPayments-description-403").html(responseDefault403_description.substring(responseDefault403_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Default-getSuppliesPayments-403" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Default-getSuppliesPayments-403-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Default-getSuppliesPayments-403-schema">
+                                <div id="responses-Default-getSuppliesPayments-schema-403" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Forbidden"
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Default-getSuppliesPayments-403-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Default-getSuppliesPayments-schema-403');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Default-getSuppliesPayments-403-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                            <h3 id="examples-Default-getSuppliesPayments-title-422"></h3>
+                            <p id="examples-Default-getSuppliesPayments-description-422" class="marked"></p>
+                            <script>
+                              var responseDefault422_description = `Unprocessable Entity (WebDAV)`;
+                              var responseDefault422_description_break = responseDefault422_description.indexOf('\n');
+                              if (responseDefault422_description_break == -1) {
+                                $("#examples-Default-getSuppliesPayments-title-422").text("Status: 422 - " + responseDefault422_description);
+                              } else {
+                                $("#examples-Default-getSuppliesPayments-title-422").text("Status: 422 - " + responseDefault422_description.substring(0, responseDefault422_description_break));
+                                $("#examples-Default-getSuppliesPayments-description-422").html(responseDefault422_description.substring(responseDefault422_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Default-getSuppliesPayments-422" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Default-getSuppliesPayments-422-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Default-getSuppliesPayments-422-schema">
+                                <div id="responses-Default-getSuppliesPayments-schema-422" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Unprocessable Entity (WebDAV)"
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Default-getSuppliesPayments-422-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Default-getSuppliesPayments-schema-422');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Default-getSuppliesPayments-422-schema-data' type='hidden' value=''></input>
+                              </div>
+                            </div>
+                            <h3 id="examples-Default-getSuppliesPayments-title-500"></h3>
+                            <p id="examples-Default-getSuppliesPayments-description-500" class="marked"></p>
+                            <script>
+                              var responseDefault500_description = `Internal Server Error`;
+                              var responseDefault500_description_break = responseDefault500_description.indexOf('\n');
+                              if (responseDefault500_description_break == -1) {
+                                $("#examples-Default-getSuppliesPayments-title-500").text("Status: 500 - " + responseDefault500_description);
+                              } else {
+                                $("#examples-Default-getSuppliesPayments-title-500").text("Status: 500 - " + responseDefault500_description.substring(0, responseDefault500_description_break));
+                                $("#examples-Default-getSuppliesPayments-description-500").html(responseDefault500_description.substring(responseDefault500_description_break));
+                              }
+                            </script>
+
+
+                            <ul id="responses-detail-Default-getSuppliesPayments-500" class="nav nav-tabs nav-tabs-examples" >
+
+
+                            </ul>
+
+
+                            <div class="tab-content" id="responses-Default-getSuppliesPayments-500-wrapper" style='margin-bottom: 10px;'>
+                              <div class="tab-pane active" id="responses-Default-getSuppliesPayments-500-schema">
+                                <div id="responses-Default-getSuppliesPayments-schema-500" class="exampleStyle">
+                                  <script>
+                                    $(document).ready(function() {
+                                      var schemaWrapper = {
+  "description" : "Internal Server Error"
+};
+                                      var schema = findNode('schema',schemaWrapper).schema;
+                                      if (!schema) {
+                                        schema = schemaWrapper.schema;
+                                      }
+                                      if (schema == null) {
+                                        return;
+                                      }
+                                      if (schema.$ref != null) {
+                                        schema = defsParser.$refs.get(schema.$ref);
+                                        if (schema.properties != null) {
+                                          Object.keys(schema.properties).forEach( (item) => {
+                                            if (schema.properties[item].$ref != null) {
+                                              schema.properties[item] = defsParser.$refs.get(schema.properties[item].$ref);
+                                            }
+                                          });
+                                        }
+                                      } else if (schema.items != null && schema.items.$ref != null) {
+                                        schema.items = defsParser.$refs.get(schema.items.$ref);
+                                      } else {
+                                        schemaWrapper.definitions = Object.assign({}, defs);
+                                        $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                          console.log(err);
+                                        });
+                                      }
+
+                                      var view = new JSONSchemaView(schema, 3);
+                                      $('#responses-Default-getSuppliesPayments-500-schema-data').val(JSON.stringify(schema));
+                                      var result = $('#responses-Default-getSuppliesPayments-schema-500');
+                                      result.empty();
+                                      result.append(view.render());
+                                    });
+                                  </script>
+                                </div>
+                                <input id='responses-Default-getSuppliesPayments-500-schema-data' type='hidden' value=''></input>
                               </div>
                             </div>
                         </article>
