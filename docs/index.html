@@ -1283,7 +1283,13 @@ ul.nav-tabs {
       }
     },
     "squaring" : {
-      "$ref" : "#/components/schemas/squaring"
+      "description" : "Squaring between sold and incames amounts",
+      "allOf" : [ {
+        "$ref" : "#/components/schemas/squaring"
+      } ],
+      "x-stoplight" : {
+        "id" : "apxkjcju6rmff"
+      }
     },
     "deliveries" : {
       "type" : "array",
@@ -3656,7 +3662,7 @@ in input if store_id is valorized then fuelstation_code can be null, other hand 
  \
  \
  -H "Accept: application/json" \
- "https://mxp-import-export-ov.dev.icadsistemi.com/v1/export/supplies/payments?store_id=storeId_example&fuelstation_code=fuelstationCode_example&start_datetime=startDatetime_example&end_datetime=endDatetime_example&is_period_date=isPeriodDate_example&page=page_example&page_size=pageSize_example"
+ "https://mxp-import-export-ov.dev.icadsistemi.com/v1/export/supplies/payments?fuelstation_code=fuelstationCode_example&start_datetime=startDatetime_example&end_datetime=endDatetime_example&is_period_date=isPeriodDate_example&page=page_example&page_size=pageSize_example"
 </code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Default-getSuppliesPayments-0-java">
@@ -3685,13 +3691,12 @@ public class DefaultApiExample {
         String startDatetime = startDatetime_example; // String | 
         String endDatetime = endDatetime_example; // String | 
         String isPeriodDate = isPeriodDate_example; // String | 
-        String storeId = storeId_example; // String | 
         String fuelstationCode = fuelstationCode_example; // String | 
         String page = page_example; // String | 
         String pageSize = pageSize_example; // String | 
 
         try {
-            supplies result = apiInstance.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, storeId, fuelstationCode, page, pageSize);
+            supplies result = apiInstance.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, fuelstationCode, page, pageSize);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getSuppliesPayments");
@@ -3710,13 +3715,12 @@ final api_instance = DefaultApi();
 final String startDatetime = new String(); // String | 
 final String endDatetime = new String(); // String | 
 final String isPeriodDate = new String(); // String | 
-final String storeId = new String(); // String | 
 final String fuelstationCode = new String(); // String | 
 final String page = new String(); // String | 
 final String pageSize = new String(); // String | 
 
 try {
-    final result = await api_instance.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, storeId, fuelstationCode, page, pageSize);
+    final result = await api_instance.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, fuelstationCode, page, pageSize);
     print(result);
 } catch (e) {
     print('Exception when calling DefaultApi->getSuppliesPayments: $e\n');
@@ -3734,13 +3738,12 @@ public class DefaultApiExample {
         String startDatetime = startDatetime_example; // String | 
         String endDatetime = endDatetime_example; // String | 
         String isPeriodDate = isPeriodDate_example; // String | 
-        String storeId = storeId_example; // String | 
         String fuelstationCode = fuelstationCode_example; // String | 
         String page = page_example; // String | 
         String pageSize = pageSize_example; // String | 
 
         try {
-            supplies result = apiInstance.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, storeId, fuelstationCode, page, pageSize);
+            supplies result = apiInstance.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, fuelstationCode, page, pageSize);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling DefaultApi#getSuppliesPayments");
@@ -3768,7 +3771,6 @@ DefaultApi *apiInstance = [[DefaultApi alloc] init];
 String *startDatetime = startDatetime_example; //  (default to null)
 String *endDatetime = endDatetime_example; //  (default to null)
 String *isPeriodDate = isPeriodDate_example; //  (default to null)
-String *storeId = storeId_example; //  (optional) (default to null)
 String *fuelstationCode = fuelstationCode_example; //  (optional) (default to null)
 String *page = page_example; //  (optional) (default to null)
 String *pageSize = pageSize_example; //  (optional) (default to null)
@@ -3777,7 +3779,6 @@ String *pageSize = pageSize_example; //  (optional) (default to null)
 [apiInstance getSuppliesPaymentsWith:startDatetime
     endDatetime:endDatetime
     isPeriodDate:isPeriodDate
-    storeId:storeId
     fuelstationCode:fuelstationCode
     page:page
     pageSize:pageSize
@@ -3810,7 +3811,6 @@ var startDatetime = startDatetime_example; // {String}
 var endDatetime = endDatetime_example; // {String} 
 var isPeriodDate = isPeriodDate_example; // {String} 
 var opts = {
-  'storeId': storeId_example, // {String} 
   'fuelstationCode': fuelstationCode_example, // {String} 
   'page': page_example, // {String} 
   'pageSize': pageSize_example // {String} 
@@ -3853,14 +3853,13 @@ namespace Example
             var startDatetime = startDatetime_example;  // String |  (default to null)
             var endDatetime = endDatetime_example;  // String |  (default to null)
             var isPeriodDate = isPeriodDate_example;  // String |  (default to null)
-            var storeId = storeId_example;  // String |  (optional)  (default to null)
             var fuelstationCode = fuelstationCode_example;  // String |  (optional)  (default to null)
             var page = page_example;  // String |  (optional)  (default to null)
             var pageSize = pageSize_example;  // String |  (optional)  (default to null)
 
             try {
                 // Your GET endpoint
-                supplies result = apiInstance.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, storeId, fuelstationCode, page, pageSize);
+                supplies result = apiInstance.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, fuelstationCode, page, pageSize);
                 Debug.WriteLine(result);
             } catch (Exception e) {
                 Debug.Print("Exception when calling DefaultApi.getSuppliesPayments: " + e.Message );
@@ -3886,13 +3885,12 @@ $api_instance = new OpenAPITools\Client\Api\DefaultApi();
 $startDatetime = startDatetime_example; // String | 
 $endDatetime = endDatetime_example; // String | 
 $isPeriodDate = isPeriodDate_example; // String | 
-$storeId = storeId_example; // String | 
 $fuelstationCode = fuelstationCode_example; // String | 
 $page = page_example; // String | 
 $pageSize = pageSize_example; // String | 
 
 try {
-    $result = $api_instance->getSuppliesPayments($startDatetime, $endDatetime, $isPeriodDate, $storeId, $fuelstationCode, $page, $pageSize);
+    $result = $api_instance->getSuppliesPayments($startDatetime, $endDatetime, $isPeriodDate, $fuelstationCode, $page, $pageSize);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->getSuppliesPayments: ', $e->getMessage(), PHP_EOL;
@@ -3916,13 +3914,12 @@ my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
 my $startDatetime = startDatetime_example; # String | 
 my $endDatetime = endDatetime_example; # String | 
 my $isPeriodDate = isPeriodDate_example; # String | 
-my $storeId = storeId_example; # String | 
 my $fuelstationCode = fuelstationCode_example; # String | 
 my $page = page_example; # String | 
 my $pageSize = pageSize_example; # String | 
 
 eval {
-    my $result = $api_instance->getSuppliesPayments(startDatetime => $startDatetime, endDatetime => $endDatetime, isPeriodDate => $isPeriodDate, storeId => $storeId, fuelstationCode => $fuelstationCode, page => $page, pageSize => $pageSize);
+    my $result = $api_instance->getSuppliesPayments(startDatetime => $startDatetime, endDatetime => $endDatetime, isPeriodDate => $isPeriodDate, fuelstationCode => $fuelstationCode, page => $page, pageSize => $pageSize);
     print Dumper($result);
 };
 if ($@) {
@@ -3948,14 +3945,13 @@ api_instance = openapi_client.DefaultApi()
 startDatetime = startDatetime_example # String |  (default to null)
 endDatetime = endDatetime_example # String |  (default to null)
 isPeriodDate = isPeriodDate_example # String |  (default to null)
-storeId = storeId_example # String |  (optional) (default to null)
 fuelstationCode = fuelstationCode_example # String |  (optional) (default to null)
 page = page_example # String |  (optional) (default to null)
 pageSize = pageSize_example # String |  (optional) (default to null)
 
 try:
     # Your GET endpoint
-    api_response = api_instance.get_supplies_payments(startDatetime, endDatetime, isPeriodDate, storeId=storeId, fuelstationCode=fuelstationCode, page=page, pageSize=pageSize)
+    api_response = api_instance.get_supplies_payments(startDatetime, endDatetime, isPeriodDate, fuelstationCode=fuelstationCode, page=page, pageSize=pageSize)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->getSuppliesPayments: %s\n" % e)</code></pre>
@@ -3968,13 +3964,12 @@ pub fn main() {
     let startDatetime = startDatetime_example; // String
     let endDatetime = endDatetime_example; // String
     let isPeriodDate = isPeriodDate_example; // String
-    let storeId = storeId_example; // String
     let fuelstationCode = fuelstationCode_example; // String
     let page = page_example; // String
     let pageSize = pageSize_example; // String
 
     let mut context = DefaultApi::Context::default();
-    let result = client.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, storeId, fuelstationCode, page, pageSize, &context).wait();
+    let result = client.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, fuelstationCode, page, pageSize, &context).wait();
 
     println!("{:?}", result);
 }
@@ -3999,23 +3994,6 @@ pub fn main() {
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                <tr><td style="width:150px;">store_id</td>
-<td>
-
-
-    <div id="d2e199_getSuppliesPayments_storeId">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    String
-                </span>
-
-            </div>
-        </div>
-    </div>
-</td>
-</tr>
-
                                 <tr><td style="width:150px;">fuelstation_code</td>
 <td>
 
