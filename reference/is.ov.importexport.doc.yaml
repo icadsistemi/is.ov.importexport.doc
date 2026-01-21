@@ -652,10 +652,6 @@ paths:
         - schema:
             type: string
           in: query
-          name: store_id
-        - schema:
-            type: string
-          in: query
           name: fuelstation_code
         - schema:
             type: string
