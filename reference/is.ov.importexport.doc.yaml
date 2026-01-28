@@ -136,6 +136,7 @@ paths:
           in: query
           name: supplier_id
           required: true
+          description: supplier identifier
     parameters: []
   /export/circuits/fuelstations:
     get:
@@ -653,29 +654,35 @@ paths:
             type: string
           in: query
           name: fuelstation_code
+          description: IS code assigned to the fuel station
         - schema:
             type: string
           in: query
           name: start_datetime
           required: true
+          description: 'start date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ")'
         - schema:
             type: string
           in: query
           name: end_datetime
           required: true
+          description: 'end date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ")'
         - schema:
             type: string
           in: query
           name: is_period_date
           required: true
+          description: 'refers to the date time period: - true for the emission date; - false for the insertion date '
         - schema:
             type: string
           in: query
           name: page
+          description: the page number
         - schema:
             type: string
           in: query
           name: page_size
+          description: the amount of element in page
     parameters: []
 components:
   schemas:
