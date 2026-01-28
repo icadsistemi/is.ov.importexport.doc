@@ -3688,12 +3688,12 @@ public class DefaultApiExample {
 
         // Create an instance of the API class
         DefaultApi apiInstance = new DefaultApi();
-        String startDatetime = startDatetime_example; // String | 
-        String endDatetime = endDatetime_example; // String | 
-        String isPeriodDate = isPeriodDate_example; // String | 
-        String fuelstationCode = fuelstationCode_example; // String | 
-        String page = page_example; // String | 
-        String pageSize = pageSize_example; // String | 
+        String startDatetime = startDatetime_example; // String | start date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ")
+        String endDatetime = endDatetime_example; // String | end date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ")
+        String isPeriodDate = isPeriodDate_example; // String | refers to the date time period: - true for the emission date; - false for the insertion date 
+        String fuelstationCode = fuelstationCode_example; // String | IS code assigned to the fuel station
+        String page = page_example; // String | the page number
+        String pageSize = pageSize_example; // String | the amount of element in page
 
         try {
             supplies result = apiInstance.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, fuelstationCode, page, pageSize);
@@ -3712,12 +3712,12 @@ public class DefaultApiExample {
 
 final api_instance = DefaultApi();
 
-final String startDatetime = new String(); // String | 
-final String endDatetime = new String(); // String | 
-final String isPeriodDate = new String(); // String | 
-final String fuelstationCode = new String(); // String | 
-final String page = new String(); // String | 
-final String pageSize = new String(); // String | 
+final String startDatetime = new String(); // String | start date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ")
+final String endDatetime = new String(); // String | end date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ")
+final String isPeriodDate = new String(); // String | refers to the date time period: - true for the emission date; - false for the insertion date 
+final String fuelstationCode = new String(); // String | IS code assigned to the fuel station
+final String page = new String(); // String | the page number
+final String pageSize = new String(); // String | the amount of element in page
 
 try {
     final result = await api_instance.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, fuelstationCode, page, pageSize);
@@ -3735,12 +3735,12 @@ try {
 public class DefaultApiExample {
     public static void main(String[] args) {
         DefaultApi apiInstance = new DefaultApi();
-        String startDatetime = startDatetime_example; // String | 
-        String endDatetime = endDatetime_example; // String | 
-        String isPeriodDate = isPeriodDate_example; // String | 
-        String fuelstationCode = fuelstationCode_example; // String | 
-        String page = page_example; // String | 
-        String pageSize = pageSize_example; // String | 
+        String startDatetime = startDatetime_example; // String | start date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ")
+        String endDatetime = endDatetime_example; // String | end date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ")
+        String isPeriodDate = isPeriodDate_example; // String | refers to the date time period: - true for the emission date; - false for the insertion date 
+        String fuelstationCode = fuelstationCode_example; // String | IS code assigned to the fuel station
+        String page = page_example; // String | the page number
+        String pageSize = pageSize_example; // String | the amount of element in page
 
         try {
             supplies result = apiInstance.getSuppliesPayments(startDatetime, endDatetime, isPeriodDate, fuelstationCode, page, pageSize);
@@ -3768,12 +3768,12 @@ public class DefaultApiExample {
 
 // Create an instance of the API class
 DefaultApi *apiInstance = [[DefaultApi alloc] init];
-String *startDatetime = startDatetime_example; //  (default to null)
-String *endDatetime = endDatetime_example; //  (default to null)
-String *isPeriodDate = isPeriodDate_example; //  (default to null)
-String *fuelstationCode = fuelstationCode_example; //  (optional) (default to null)
-String *page = page_example; //  (optional) (default to null)
-String *pageSize = pageSize_example; //  (optional) (default to null)
+String *startDatetime = startDatetime_example; // start date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ") (default to null)
+String *endDatetime = endDatetime_example; // end date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ") (default to null)
+String *isPeriodDate = isPeriodDate_example; // refers to the date time period: - true for the emission date; - false for the insertion date  (default to null)
+String *fuelstationCode = fuelstationCode_example; // IS code assigned to the fuel station (optional) (default to null)
+String *page = page_example; // the page number (optional) (default to null)
+String *pageSize = pageSize_example; // the amount of element in page (optional) (default to null)
 
 // Your GET endpoint
 [apiInstance getSuppliesPaymentsWith:startDatetime
@@ -3807,13 +3807,13 @@ develop.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
 var api = new ImportExportOverview.DefaultApi()
-var startDatetime = startDatetime_example; // {String} 
-var endDatetime = endDatetime_example; // {String} 
-var isPeriodDate = isPeriodDate_example; // {String} 
+var startDatetime = startDatetime_example; // {String} start date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ")
+var endDatetime = endDatetime_example; // {String} end date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ")
+var isPeriodDate = isPeriodDate_example; // {String} refers to the date time period: - true for the emission date; - false for the insertion date 
 var opts = {
-  'fuelstationCode': fuelstationCode_example, // {String} 
-  'page': page_example, // {String} 
-  'pageSize': pageSize_example // {String} 
+  'fuelstationCode': fuelstationCode_example, // {String} IS code assigned to the fuel station
+  'page': page_example, // {String} the page number
+  'pageSize': pageSize_example // {String} the amount of element in page
 };
 
 var callback = function(error, data, response) {
@@ -3850,12 +3850,12 @@ namespace Example
 
             // Create an instance of the API class
             var apiInstance = new DefaultApi();
-            var startDatetime = startDatetime_example;  // String |  (default to null)
-            var endDatetime = endDatetime_example;  // String |  (default to null)
-            var isPeriodDate = isPeriodDate_example;  // String |  (default to null)
-            var fuelstationCode = fuelstationCode_example;  // String |  (optional)  (default to null)
-            var page = page_example;  // String |  (optional)  (default to null)
-            var pageSize = pageSize_example;  // String |  (optional)  (default to null)
+            var startDatetime = startDatetime_example;  // String | start date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ") (default to null)
+            var endDatetime = endDatetime_example;  // String | end date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ") (default to null)
+            var isPeriodDate = isPeriodDate_example;  // String | refers to the date time period: - true for the emission date; - false for the insertion date  (default to null)
+            var fuelstationCode = fuelstationCode_example;  // String | IS code assigned to the fuel station (optional)  (default to null)
+            var page = page_example;  // String | the page number (optional)  (default to null)
+            var pageSize = pageSize_example;  // String | the amount of element in page (optional)  (default to null)
 
             try {
                 // Your GET endpoint
@@ -3882,12 +3882,12 @@ OpenAPITools\Client\Configuration::getDefaultConfiguration()->setAccessToken('YO
 
 // Create an instance of the API class
 $api_instance = new OpenAPITools\Client\Api\DefaultApi();
-$startDatetime = startDatetime_example; // String | 
-$endDatetime = endDatetime_example; // String | 
-$isPeriodDate = isPeriodDate_example; // String | 
-$fuelstationCode = fuelstationCode_example; // String | 
-$page = page_example; // String | 
-$pageSize = pageSize_example; // String | 
+$startDatetime = startDatetime_example; // String | start date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ")
+$endDatetime = endDatetime_example; // String | end date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ")
+$isPeriodDate = isPeriodDate_example; // String | refers to the date time period: - true for the emission date; - false for the insertion date 
+$fuelstationCode = fuelstationCode_example; // String | IS code assigned to the fuel station
+$page = page_example; // String | the page number
+$pageSize = pageSize_example; // String | the amount of element in page
 
 try {
     $result = $api_instance->getSuppliesPayments($startDatetime, $endDatetime, $isPeriodDate, $fuelstationCode, $page, $pageSize);
@@ -3911,12 +3911,12 @@ $WWW::OPenAPIClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 # Create an instance of the API class
 my $api_instance = WWW::OPenAPIClient::DefaultApi->new();
-my $startDatetime = startDatetime_example; # String | 
-my $endDatetime = endDatetime_example; # String | 
-my $isPeriodDate = isPeriodDate_example; # String | 
-my $fuelstationCode = fuelstationCode_example; # String | 
-my $page = page_example; # String | 
-my $pageSize = pageSize_example; # String | 
+my $startDatetime = startDatetime_example; # String | start date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ")
+my $endDatetime = endDatetime_example; # String | end date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ")
+my $isPeriodDate = isPeriodDate_example; # String | refers to the date time period: - true for the emission date; - false for the insertion date 
+my $fuelstationCode = fuelstationCode_example; # String | IS code assigned to the fuel station
+my $page = page_example; # String | the page number
+my $pageSize = pageSize_example; # String | the amount of element in page
 
 eval {
     my $result = $api_instance->getSuppliesPayments(startDatetime => $startDatetime, endDatetime => $endDatetime, isPeriodDate => $isPeriodDate, fuelstationCode => $fuelstationCode, page => $page, pageSize => $pageSize);
@@ -3942,12 +3942,12 @@ openapi_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Create an instance of the API class
 api_instance = openapi_client.DefaultApi()
-startDatetime = startDatetime_example # String |  (default to null)
-endDatetime = endDatetime_example # String |  (default to null)
-isPeriodDate = isPeriodDate_example # String |  (default to null)
-fuelstationCode = fuelstationCode_example # String |  (optional) (default to null)
-page = page_example # String |  (optional) (default to null)
-pageSize = pageSize_example # String |  (optional) (default to null)
+startDatetime = startDatetime_example # String | start date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ") (default to null)
+endDatetime = endDatetime_example # String | end date time of supplies. format ("yyyy-MM-ddThh:mm:ssZ") (default to null)
+isPeriodDate = isPeriodDate_example # String | refers to the date time period: - true for the emission date; - false for the insertion date  (default to null)
+fuelstationCode = fuelstationCode_example # String | IS code assigned to the fuel station (optional) (default to null)
+page = page_example # String | the page number (optional) (default to null)
+pageSize = pageSize_example # String | the amount of element in page (optional) (default to null)
 
 try:
     # Your GET endpoint
@@ -4005,6 +4005,9 @@ pub fn main() {
                     String
                 </span>
 
+                    <div class="inner description marked">
+IS code assigned to the fuel station
+                    </div>
             </div>
         </div>
     </div>
@@ -4022,6 +4025,9 @@ pub fn main() {
                     String
                 </span>
 
+                    <div class="inner description marked">
+start date time of supplies. format (&quot;yyyy-MM-ddThh:mm:ssZ&quot;)
+                    </div>
             </div>
                 <div class="inner required">
                     Required
@@ -4042,6 +4048,9 @@ pub fn main() {
                     String
                 </span>
 
+                    <div class="inner description marked">
+end date time of supplies. format (&quot;yyyy-MM-ddThh:mm:ssZ&quot;)
+                    </div>
             </div>
                 <div class="inner required">
                     Required
@@ -4062,6 +4071,9 @@ pub fn main() {
                     String
                 </span>
 
+                    <div class="inner description marked">
+refers to the date time period: - true for the emission date; - false for the insertion date 
+                    </div>
             </div>
                 <div class="inner required">
                     Required
@@ -4082,6 +4094,9 @@ pub fn main() {
                     String
                 </span>
 
+                    <div class="inner description marked">
+the page number
+                    </div>
             </div>
         </div>
     </div>
@@ -4099,6 +4114,9 @@ pub fn main() {
                     String
                 </span>
 
+                    <div class="inner description marked">
+the amount of element in page
+                    </div>
             </div>
         </div>
     </div>
@@ -4510,7 +4528,7 @@ public class FuelstationsApiExample {
 
         // Create an instance of the API class
         FuelstationsApi apiInstance = new FuelstationsApi();
-        String supplierId = supplierId_example; // String | 
+        String supplierId = supplierId_example; // String | supplier identifier
 
         try {
             array[get_fuelstations_by_supplier_id_200_response_inner] result = apiInstance.getFuelstationsBySupplierId(supplierId);
@@ -4529,7 +4547,7 @@ public class FuelstationsApiExample {
 
 final api_instance = DefaultApi();
 
-final String supplierId = new String(); // String | 
+final String supplierId = new String(); // String | supplier identifier
 
 try {
     final result = await api_instance.getFuelstationsBySupplierId(supplierId);
@@ -4547,7 +4565,7 @@ try {
 public class FuelstationsApiExample {
     public static void main(String[] args) {
         FuelstationsApi apiInstance = new FuelstationsApi();
-        String supplierId = supplierId_example; // String | 
+        String supplierId = supplierId_example; // String | supplier identifier
 
         try {
             array[get_fuelstations_by_supplier_id_200_response_inner] result = apiInstance.getFuelstationsBySupplierId(supplierId);
@@ -4575,7 +4593,7 @@ public class FuelstationsApiExample {
 
 // Create an instance of the API class
 FuelstationsApi *apiInstance = [[FuelstationsApi alloc] init];
-String *supplierId = supplierId_example; //  (default to null)
+String *supplierId = supplierId_example; // supplier identifier (default to null)
 
 // Get fuelstations by supplier id
 [apiInstance getFuelstationsBySupplierIdWith:supplierId
@@ -4604,7 +4622,7 @@ develop.accessToken = "YOUR ACCESS TOKEN";
 
 // Create an instance of the API class
 var api = new ImportExportOverview.FuelstationsApi()
-var supplierId = supplierId_example; // {String} 
+var supplierId = supplierId_example; // {String} supplier identifier
 
 var callback = function(error, data, response) {
   if (error) {
@@ -4640,7 +4658,7 @@ namespace Example
 
             // Create an instance of the API class
             var apiInstance = new FuelstationsApi();
-            var supplierId = supplierId_example;  // String |  (default to null)
+            var supplierId = supplierId_example;  // String | supplier identifier (default to null)
 
             try {
                 // Get fuelstations by supplier id
@@ -4667,7 +4685,7 @@ OpenAPITools\Client\Configuration::getDefaultConfiguration()->setAccessToken('YO
 
 // Create an instance of the API class
 $api_instance = new OpenAPITools\Client\Api\FuelstationsApi();
-$supplierId = supplierId_example; // String | 
+$supplierId = supplierId_example; // String | supplier identifier
 
 try {
     $result = $api_instance->getFuelstationsBySupplierId($supplierId);
@@ -4691,7 +4709,7 @@ $WWW::OPenAPIClient::Configuration::access_token = 'YOUR_ACCESS_TOKEN';
 
 # Create an instance of the API class
 my $api_instance = WWW::OPenAPIClient::FuelstationsApi->new();
-my $supplierId = supplierId_example; # String | 
+my $supplierId = supplierId_example; # String | supplier identifier
 
 eval {
     my $result = $api_instance->getFuelstationsBySupplierId(supplierId => $supplierId);
@@ -4717,7 +4735,7 @@ openapi_client.configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Create an instance of the API class
 api_instance = openapi_client.FuelstationsApi()
-supplierId = supplierId_example # String |  (default to null)
+supplierId = supplierId_example # String | supplier identifier (default to null)
 
 try:
     # Get fuelstations by supplier id
@@ -4770,6 +4788,9 @@ pub fn main() {
                     String
                 </span>
 
+                    <div class="inner description marked">
+supplier identifier
+                    </div>
             </div>
                 <div class="inner required">
                     Required
