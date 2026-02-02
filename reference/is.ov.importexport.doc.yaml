@@ -3,7 +3,7 @@ x-stoplight:
   id: 91a4ao3uk9mo2
 info:
   title: Import export Overview
-  version: 1.6.2
+  version: 1.6.3
   description: |
     # Overview import export api documentation
 
@@ -545,6 +545,24 @@ paths:
                         $ref: '#/components/schemas/cashPayment'
                         x-stoplight:
                           id: zddppz6urqvee
+                    incames_nonoil:
+                      x-stoplight:
+                        id: 2fe6p2xsuco4s
+                      type: array
+                      description: Incames with grouping amount by payment type for non oil
+                      items:
+                        $ref: '#/components/schemas/incame_nonoil'
+                        x-stoplight:
+                          id: g7y056r0h5mpr
+                    incames_pumps_disconnected:
+                      type: array
+                      x-stoplight:
+                        id: ux9wim7kwh3oi
+                      description: Incames with grouping amount by payment type for disconnected pumps
+                      items:
+                        $ref: '#/components/schemas/incames_pumps_disconnected'
+                        x-stoplight:
+                          id: 91dlgylj97g4s
         '400':
           description: Bad Request
         '401':
@@ -743,6 +761,48 @@ components:
           x-stoplight:
             id: ljaxm5z1girgo
           description: Outdoor amount for the payment type
+        total:
+          type: number
+          x-stoplight:
+            id: ld8lwi50qtkhj
+          description: Total amount for the payment type
+    incame_nonoil:
+      title: incames
+      x-stoplight:
+        id: 843l5bz62otno
+      type: object
+      properties:
+        payment:
+          type: string
+          x-stoplight:
+            id: zjifblutiw19n
+          description: Payment type description
+        fuel_cards_recharges_amount:
+          type: number
+          x-stoplight:
+            id: i0ua3kmd4pyuj
+          description: Recharges amount for the payment type
+        fuel_coupons_amount:
+          type: number
+          x-stoplight:
+            id: ljaxm5z1girgo
+          description: Fuel coupons amount for the payment type
+        others_amount:
+          type: number
+          x-stoplight:
+            id: ld8lwi50qtkhj
+          description: Other amount for the payment type
+    incames_pumps_disconnected:
+      title: incames
+      x-stoplight:
+        id: 5fg8ujoowo6ke
+      type: object
+      properties:
+        payment:
+          type: string
+          x-stoplight:
+            id: zjifblutiw19n
+          description: Payment type description
         total:
           type: number
           x-stoplight:
