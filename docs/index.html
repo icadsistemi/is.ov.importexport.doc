@@ -1310,6 +1310,26 @@ ul.nav-tabs {
       "x-stoplight" : {
         "id" : "kpdrisjgeoyvd"
       }
+    },
+    "incames_nonoil" : {
+      "type" : "array",
+      "description" : "Incames with grouping amount by payment type for non oil",
+      "items" : {
+        "$ref" : "#/components/schemas/incame_nonoil"
+      },
+      "x-stoplight" : {
+        "id" : "2fe6p2xsuco4s"
+      }
+    },
+    "incames_pumps_disconnected" : {
+      "type" : "array",
+      "description" : "Incames with grouping amount by payment type for disconnected pumps",
+      "items" : {
+        "$ref" : "#/components/schemas/incames_pumps_disconnected"
+      },
+      "x-stoplight" : {
+        "id" : "ux9wim7kwh3oi"
+      }
     }
   },
   "x-stoplight" : {
@@ -1391,6 +1411,64 @@ ul.nav-tabs {
   },
   "x-stoplight" : {
     "id" : "sr7ci8khxr4xy"
+  }
+};
+    defs["incame_nonoil"] = {
+  "title" : "incames",
+  "properties" : {
+    "payment" : {
+      "type" : "string",
+      "description" : "Payment type description",
+      "x-stoplight" : {
+        "id" : "zjifblutiw19n"
+      }
+    },
+    "fuel_cards_recharges_amount" : {
+      "type" : "number",
+      "description" : "Recharges amount for the payment type",
+      "x-stoplight" : {
+        "id" : "i0ua3kmd4pyuj"
+      }
+    },
+    "fuel_coupons_amount" : {
+      "type" : "number",
+      "description" : "Fuel coupons amount for the payment type",
+      "x-stoplight" : {
+        "id" : "ljaxm5z1girgo"
+      }
+    },
+    "others_amount" : {
+      "type" : "number",
+      "description" : "Other amount for the payment type",
+      "x-stoplight" : {
+        "id" : "ld8lwi50qtkhj"
+      }
+    }
+  },
+  "x-stoplight" : {
+    "id" : "843l5bz62otno"
+  }
+};
+    defs["incames_pumps_disconnected"] = {
+  "title" : "incames",
+  "properties" : {
+    "payment" : {
+      "type" : "string",
+      "description" : "Payment type description",
+      "x-stoplight" : {
+        "id" : "zjifblutiw19n"
+      }
+    },
+    "total" : {
+      "type" : "number",
+      "description" : "Total amount for the payment type",
+      "x-stoplight" : {
+        "id" : "ld8lwi50qtkhj"
+      }
+    }
+  },
+  "x-stoplight" : {
+    "id" : "5fg8ujoowo6ke"
   }
 };
     defs["level"] = {
@@ -1821,7 +1899,7 @@ ul.nav-tabs {
         <div id="header">
           <div id="api-_">
             <h2 id="welcome-to-apidoc">API and SDK Documentation</h2>
-              <div class="app-desc">Version: 1.6.2</div>
+              <div class="app-desc">Version: 1.6.3</div>
             <hr>
             <div id="app-description" class="app-desc">
                 <h1>Overview import export api documentation</h1>
