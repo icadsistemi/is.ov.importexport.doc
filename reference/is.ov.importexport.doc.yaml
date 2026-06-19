@@ -647,7 +647,8 @@ paths:
   /export/supplies/payments:
     get:
       summary: Your GET endpoint
-      tags: []
+      tags:
+        - supplies
       responses:
         '200':
           description: OK
@@ -702,6 +703,2301 @@ paths:
           name: page_size
           description: the amount of element in page
     parameters: []
+  '/export/suppliers/{supplier_id}/prices':
+    parameters:
+      - schema:
+          type: string
+        name: supplier_id
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                x-examples:
+                  Example 1:
+                    - fuelstation_id: 2957
+                      fuelstation_code: IS318071
+                      fuelstation_name: RUBANO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.779
+                          activation_date: '2026-06-19T15:41:27+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.779
+                          activation_date: '2026-06-19T15:41:27+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.889
+                          activation_date: '2026-06-19T15:41:27+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.889
+                          activation_date: '2026-06-19T15:41:27+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.989
+                          activation_date: '2026-06-19T15:41:27+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.989
+                          activation_date: '2026-06-19T15:41:27+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.774
+                          activation_date: '2026-06-19T15:41:27+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.774
+                          activation_date: '2026-06-19T15:41:27+02:00'
+                    - fuelstation_id: 2960
+                      fuelstation_code: IS318067
+                      fuelstation_name: PADOVA Via Po
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.795
+                          activation_date: '2026-06-19T08:02:03+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.795
+                          activation_date: '2026-06-19T08:02:03+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.895
+                          activation_date: '2026-06-19T08:02:03+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.895
+                          activation_date: '2026-06-19T08:02:03+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.995
+                          activation_date: '2026-06-19T08:02:03+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.995
+                          activation_date: '2026-06-19T08:02:03+02:00'
+                    - fuelstation_id: 2961
+                      fuelstation_code: IS318068
+                      fuelstation_name: PADOVA Via Guizza
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.795
+                          activation_date: '2026-06-18T16:26:24+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.795
+                          activation_date: '2026-06-18T16:26:24+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.895
+                          activation_date: '2026-06-18T16:26:24+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.895
+                          activation_date: '2026-06-18T16:26:24+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.995
+                          activation_date: '2026-06-18T16:26:24+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.995
+                          activation_date: '2026-06-18T16:26:24+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.787
+                          activation_date: '2026-06-18T16:26:24+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.787
+                          activation_date: '2026-06-18T16:26:24+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.699
+                          activation_date: '2026-06-18T16:26:24+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.699
+                          activation_date: '2026-06-18T16:26:24+02:00'
+                    - fuelstation_id: 2962
+                      fuelstation_code: IS318058
+                      fuelstation_name: BAGNOLI DI SOPRA
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.835
+                          activation_date: '2026-06-19T15:30:29+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.785
+                          activation_date: '2026-06-19T15:30:29+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.915
+                          activation_date: '2026-06-19T15:30:29+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.865
+                          activation_date: '2026-06-19T15:30:29+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 2.015
+                          activation_date: '2026-06-19T15:30:29+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.965
+                          activation_date: '2026-06-19T15:30:29+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.999
+                          activation_date: '2026-06-19T15:30:29+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.999
+                          activation_date: '2026-06-19T15:30:29+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.765
+                          activation_date: '2026-06-19T15:30:29+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.765
+                          activation_date: '2026-06-19T15:30:29+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.499
+                          activation_date: '2026-06-19T15:30:29+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.499
+                          activation_date: '2026-06-19T15:30:29+02:00'
+                    - fuelstation_id: 2963
+                      fuelstation_code: IS325131
+                      fuelstation_name: ARCUGNANO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.879
+                          activation_date: '2026-06-19T08:20:46+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.779
+                          activation_date: '2026-06-19T08:20:46+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.979
+                          activation_date: '2026-06-19T08:20:46+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.879
+                          activation_date: '2026-06-19T08:20:46+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.999
+                          activation_date: '2026-06-19T08:20:46+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.999
+                          activation_date: '2026-06-19T08:20:46+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.695
+                          activation_date: '2026-06-19T08:20:46+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.695
+                          activation_date: '2026-06-19T08:20:46+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1
+                          activation_date: '2026-06-19T08:20:46+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1
+                          activation_date: '2026-06-19T08:20:46+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.969
+                          activation_date: '2026-06-19T08:20:46+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.869
+                          activation_date: '2026-06-19T08:20:46+02:00'
+                    - fuelstation_id: 2964
+                      fuelstation_code: IS318073
+                      fuelstation_name: SAN GIOVANNI IN PERSICETO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.845
+                          activation_date: '2026-06-18T16:44:14+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.795
+                          activation_date: '2026-06-18T16:44:14+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.925
+                          activation_date: '2026-06-18T16:44:14+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.875
+                          activation_date: '2026-06-18T16:44:14+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.999
+                          activation_date: '2026-06-18T16:44:14+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.999
+                          activation_date: '2026-06-18T16:44:14+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.775
+                          activation_date: '2026-06-18T16:44:14+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.775
+                          activation_date: '2026-06-18T16:44:14+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.499
+                          activation_date: '2026-06-18T16:44:14+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.499
+                          activation_date: '2026-06-18T16:44:14+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.919
+                          activation_date: '2026-06-18T16:44:14+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.869
+                          activation_date: '2026-06-18T16:44:14+02:00'
+                    - fuelstation_id: 2965
+                      fuelstation_code: IS325130
+                      fuelstation_name: MARANO VICENTINO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.795
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.795
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.875
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.875
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.999
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.999
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.699
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.699
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.699
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.699
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.855
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.855
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                    - fuelstation_id: 2966
+                      fuelstation_code: IS318060
+                      fuelstation_name: CADONEGHE
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.819
+                          activation_date: '2026-06-18T16:28:58+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.819
+                          activation_date: '2026-06-18T16:28:58+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.919
+                          activation_date: '2026-06-18T16:28:58+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.919
+                          activation_date: '2026-06-18T16:28:58+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 2.019
+                          activation_date: '2026-06-18T16:28:58+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 2.019
+                          activation_date: '2026-06-18T16:28:58+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.695
+                          activation_date: '2026-06-18T16:28:58+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.695
+                          activation_date: '2026-06-18T16:28:58+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.477
+                          activation_date: '2026-06-18T16:28:58+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.477
+                          activation_date: '2026-06-18T16:28:58+02:00'
+                    - fuelstation_id: 2967
+                      fuelstation_code: IS318074
+                      fuelstation_name: SAONARA
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.795
+                          activation_date: '2026-06-19T01:56:36+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.795
+                          activation_date: '2026-06-19T01:56:36+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.915
+                          activation_date: '2026-06-19T01:56:36+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.915
+                          activation_date: '2026-06-19T01:56:36+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.058
+                          activation_date: '2026-06-19T01:56:36+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.058
+                          activation_date: '2026-06-19T01:56:36+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.779
+                          activation_date: '2026-06-19T01:56:36+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.779
+                          activation_date: '2026-06-19T01:56:36+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.433
+                          activation_date: '2026-06-19T01:56:36+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.433
+                          activation_date: '2026-06-19T01:56:36+02:00'
+                        - product_id: 17
+                          product_name: GNL
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.419
+                          activation_date: '2026-06-19T01:56:36+02:00'
+                        - product_id: 17
+                          product_name: GNL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.419
+                          activation_date: '2026-06-19T01:56:36+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.895
+                          activation_date: '2026-06-19T01:56:36+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.895
+                          activation_date: '2026-06-19T01:56:36+02:00'
+                    - fuelstation_id: 2968
+                      fuelstation_code: IS318062
+                      fuelstation_name: GREZZAGO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.795
+                          activation_date: '2026-06-18T17:23:56+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.795
+                          activation_date: '2026-06-18T17:23:56+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.895
+                          activation_date: '2026-06-18T17:23:56+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.895
+                          activation_date: '2026-06-18T17:23:56+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.995
+                          activation_date: '2026-06-18T17:23:56+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.995
+                          activation_date: '2026-06-18T17:23:56+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.754
+                          activation_date: '2026-06-18T17:23:56+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.754
+                          activation_date: '2026-06-18T17:23:56+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.499
+                          activation_date: '2026-06-18T17:23:56+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.499
+                          activation_date: '2026-06-18T17:23:56+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.889
+                          activation_date: '2026-06-18T17:23:56+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.889
+                          activation_date: '2026-06-18T17:23:56+02:00'
+                    - fuelstation_id: 2969
+                      fuelstation_code: IS318063
+                      fuelstation_name: JESOLO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.795
+                          activation_date: '2026-06-18T15:24:36+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.895
+                          activation_date: '2026-06-18T15:24:36+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.995
+                          activation_date: '2026-06-18T15:24:36+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.999
+                          activation_date: '2026-06-18T15:24:36+02:00'
+                    - fuelstation_id: 2970
+                      fuelstation_code: IS318059
+                      fuelstation_name: BONDENO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.865
+                          activation_date: '2026-06-18T18:05:50+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.815
+                          activation_date: '2026-06-18T18:05:50+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.965
+                          activation_date: '2026-06-18T18:05:50+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.915
+                          activation_date: '2026-06-18T18:05:50+02:00'
+                    - fuelstation_id: 2971
+                      fuelstation_code: IS318072
+                      fuelstation_name: VIGODARZERE
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.799
+                          activation_date: '2026-06-19T16:04:23+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.799
+                          activation_date: '2026-06-19T16:04:23+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.899
+                          activation_date: '2026-06-19T16:04:23+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.899
+                          activation_date: '2026-06-19T16:04:23+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.999
+                          activation_date: '2026-06-19T16:04:23+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.999
+                          activation_date: '2026-06-19T16:04:23+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.729
+                          activation_date: '2026-06-19T16:04:23+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.729
+                          activation_date: '2026-06-19T16:04:23+02:00'
+                    - fuelstation_id: 2972
+                      fuelstation_code: IS318061
+                      fuelstation_name: CARMIGNANO DI BRENTA
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.799
+                          activation_date: '2026-06-19T15:45:20+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.799
+                          activation_date: '2026-06-19T15:45:20+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.899
+                          activation_date: '2026-06-19T15:45:20+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.899
+                          activation_date: '2026-06-19T15:45:20+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.999
+                          activation_date: '2026-06-19T15:45:20+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.999
+                          activation_date: '2026-06-19T15:45:20+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.819
+                          activation_date: '2026-06-19T15:45:20+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.819
+                          activation_date: '2026-06-19T15:45:20+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.769
+                          activation_date: '2026-06-19T15:45:20+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.769
+                          activation_date: '2026-06-19T15:45:20+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.449
+                          activation_date: '2026-06-19T15:45:20+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.449
+                          activation_date: '2026-06-19T15:45:20+02:00'
+                    - fuelstation_id: 2974
+                      fuelstation_code: IS318070
+                      fuelstation_name: ROVERBELLA
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.899
+                          activation_date: '2026-06-18T11:17:35+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.849
+                          activation_date: '2026-06-18T11:17:35+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.979
+                          activation_date: '2026-06-18T11:17:35+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.929
+                          activation_date: '2026-06-18T11:17:35+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 2.079
+                          activation_date: '2026-06-18T11:17:35+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 2.029
+                          activation_date: '2026-06-18T11:17:35+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.994
+                          activation_date: '2026-06-18T11:17:35+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.994
+                          activation_date: '2026-06-18T11:17:35+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.799
+                          activation_date: '2026-06-18T11:17:35+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.799
+                          activation_date: '2026-06-18T11:17:35+02:00'
+                    - fuelstation_id: 3032
+                      fuelstation_code: IS318065
+                      fuelstation_name: PUNTA FARO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.959
+                          activation_date: '2026-06-19T07:41:57+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.999
+                          activation_date: '2026-06-19T07:41:57+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.39
+                          activation_date: '2026-06-19T07:41:57+02:00'
+                    - fuelstation_id: 3063
+                      fuelstation_code: IS318075
+                      fuelstation_name: VILLADOSE
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.797
+                          activation_date: '2026-06-18T18:39:34+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.897
+                          activation_date: '2026-06-18T18:39:34+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.997
+                          activation_date: '2026-06-18T18:39:34+02:00'
+                    - fuelstation_id: 3099
+                      fuelstation_code: IS318066
+                      fuelstation_name: MEGLIADINO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.845
+                          activation_date: '2026-06-18T08:24:54+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.845
+                          activation_date: '2026-06-18T08:24:54+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.945
+                          activation_date: '2026-06-18T08:24:54+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.945
+                          activation_date: '2026-06-18T08:24:54+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.858
+                          activation_date: '2026-06-18T08:24:54+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.858
+                          activation_date: '2026-06-18T08:24:54+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.757
+                          activation_date: '2026-06-18T08:24:54+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.757
+                          activation_date: '2026-06-18T08:24:54+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.599
+                          activation_date: '2026-06-18T08:24:54+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.599
+                          activation_date: '2026-06-18T08:24:54+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.899
+                          activation_date: '2026-06-18T08:24:54+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.899
+                          activation_date: '2026-06-18T08:24:54+02:00'
+                    - fuelstation_id: 3149
+                      fuelstation_code: IS318064
+                      fuelstation_name: LEGNARO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.789
+                          activation_date: '2026-06-19T06:40:06+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.789
+                          activation_date: '2026-06-19T06:40:06+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.859
+                          activation_date: '2026-06-19T06:40:06+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.859
+                          activation_date: '2026-06-19T06:40:06+02:00'
+                    - fuelstation_id: 3499
+                      fuelstation_code: IS318156
+                      fuelstation_name: TREVIGLIO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.895
+                          activation_date: '2026-06-19T10:22:29+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.795
+                          activation_date: '2026-06-19T10:22:29+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.995
+                          activation_date: '2026-06-19T10:22:29+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.895
+                          activation_date: '2026-06-19T10:22:29+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.099
+                          activation_date: '2026-06-19T10:22:29+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.099
+                          activation_date: '2026-06-19T10:22:29+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.695
+                          activation_date: '2026-06-19T10:22:29+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.695
+                          activation_date: '2026-06-19T10:22:29+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.439
+                          activation_date: '2026-06-19T10:22:29+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.439
+                          activation_date: '2026-06-19T10:22:29+02:00'
+                    - fuelstation_id: 3598
+                      fuelstation_code: IS319221
+                      fuelstation_name: VILLAGUATTERA
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.785
+                          activation_date: '2026-06-19T11:12:14+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.785
+                          activation_date: '2026-06-19T11:12:14+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.885
+                          activation_date: '2026-06-19T11:12:14+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.885
+                          activation_date: '2026-06-19T11:12:14+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.985
+                          activation_date: '2026-06-19T11:12:14+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.985
+                          activation_date: '2026-06-19T11:12:14+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.899
+                          activation_date: '2026-06-19T11:12:14+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.899
+                          activation_date: '2026-06-19T11:12:14+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.774
+                          activation_date: '2026-06-19T11:12:14+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.774
+                          activation_date: '2026-06-19T11:12:14+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.499
+                          activation_date: '2026-06-19T11:12:14+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.499
+                          activation_date: '2026-06-19T11:12:14+02:00'
+                    - fuelstation_id: 3646
+                      fuelstation_code: IS320098
+                      fuelstation_name: DUE CARRARE
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.795
+                          activation_date: '2026-06-19T11:53:18+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.795
+                          activation_date: '2026-06-19T11:53:18+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.895
+                          activation_date: '2026-06-19T11:53:18+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.895
+                          activation_date: '2026-06-19T11:53:18+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.995
+                          activation_date: '2026-06-19T11:53:18+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.995
+                          activation_date: '2026-06-19T11:53:18+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.745
+                          activation_date: '2026-06-19T11:53:18+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.745
+                          activation_date: '2026-06-19T11:53:18+02:00'
+                    - fuelstation_id: 3900
+                      fuelstation_code: IS999521
+                      fuelstation_name: LIGNANO SABBIADORO
+                      prices: []
+                    - fuelstation_id: 5571
+                      fuelstation_code: IS322142
+                      fuelstation_name: ARIANO NEL POLESINE
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.895
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.795
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.975
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.875
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 2.075
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.975
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.999
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.999
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.659
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.659
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                    - fuelstation_id: 5843
+                      fuelstation_code: IS323043
+                      fuelstation_name: COMACCHIO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.819
+                          activation_date: '2026-06-18T16:51:39+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.819
+                          activation_date: '2026-06-18T16:51:39+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.919
+                          activation_date: '2026-06-18T16:51:39+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.919
+                          activation_date: '2026-06-18T16:51:39+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.99
+                          activation_date: '2026-06-18T16:51:39+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.99
+                          activation_date: '2026-06-18T16:51:39+02:00'
+                    - fuelstation_id: 5844
+                      fuelstation_code: IS323041
+                      fuelstation_name: FERRARA VIALE PO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.894
+                          activation_date: '2026-06-18T07:15:13+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.794
+                          activation_date: '2026-06-18T07:15:13+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.994
+                          activation_date: '2026-06-18T07:15:13+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.894
+                          activation_date: '2026-06-18T07:15:13+02:00'
+                    - fuelstation_id: 5845
+                      fuelstation_code: IS323052
+                      fuelstation_name: CENTO VIA MODENA
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.849
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.849
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.949
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.949
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.99
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.99
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.799
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.799
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.919
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.919
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                    - fuelstation_id: 5847
+                      fuelstation_code: IS323054
+                      fuelstation_name: MODENA NONANTOLANA
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.799
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.799
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.899
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.899
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.999
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.999
+                          activation_date: '2026-06-18T17:36:39+02:00'
+                    - fuelstation_id: 5848
+                      fuelstation_code: IS323048
+                      fuelstation_name: CASTELNUOVO RANGONE
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.829
+                          activation_date: '2026-06-18T19:07:25+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.929
+                          activation_date: '2026-06-18T19:07:25+02:00'
+                    - fuelstation_id: 5850
+                      fuelstation_code: IS323055
+                      fuelstation_name: SERRAMAZZONI
+                      prices: []
+                    - fuelstation_id: 5851
+                      fuelstation_code: IS323051
+                      fuelstation_name: FIORANO MODENESE
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.799
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.799
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.919
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.919
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.949
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.949
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.399
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.399
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                    - fuelstation_id: 5854
+                      fuelstation_code: IS323047
+                      fuelstation_name: CENTO VIA IV NOVEMBRE
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.849
+                          activation_date: '2026-06-18T17:34:39+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.849
+                          activation_date: '2026-06-18T17:34:39+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.949
+                          activation_date: '2026-06-18T17:34:39+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.949
+                          activation_date: '2026-06-18T17:34:39+02:00'
+                    - fuelstation_id: 5856
+                      fuelstation_code: IS323045
+                      fuelstation_name: BOLOGNA VIA DEL LAVORO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.799
+                          activation_date: '2026-06-19T10:33:47+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.799
+                          activation_date: '2026-06-19T10:33:47+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.899
+                          activation_date: '2026-06-19T10:33:47+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.899
+                          activation_date: '2026-06-19T10:33:47+02:00'
+                    - fuelstation_id: 5859
+                      fuelstation_code: IS323049
+                      fuelstation_name: BAGGIOVARA
+                      prices: []
+                    - fuelstation_id: 5864
+                      fuelstation_code: IS323050
+                      fuelstation_name: MONTECRETO
+                      prices: []
+                    - fuelstation_id: 5865
+                      fuelstation_code: IS323040
+                      fuelstation_name: PAVULLO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.849
+                          activation_date: '2026-06-18T16:47:51+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.849
+                          activation_date: '2026-06-18T16:47:51+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.949
+                          activation_date: '2026-06-18T16:47:51+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.949
+                          activation_date: '2026-06-18T16:47:51+02:00'
+                    - fuelstation_id: 5867
+                      fuelstation_code: IS323056
+                      fuelstation_name: MONTE SAN PIETRO
+                      prices: []
+                    - fuelstation_id: 5873
+                      fuelstation_code: IS323095
+                      fuelstation_name: MANTOVA
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.747
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.747
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.843
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.843
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.099
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.099
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.723
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.723
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.489
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.489
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 17
+                          product_name: GNL
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.419
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 17
+                          product_name: GNL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.419
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.839
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.839
+                          activation_date: '2026-06-19T16:00:51+02:00'
+                    - fuelstation_id: 5874
+                      fuelstation_code: IS323053
+                      fuelstation_name: LOIANO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.859
+                          activation_date: '2026-06-19T07:32:31+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.859
+                          activation_date: '2026-06-19T07:32:31+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.959
+                          activation_date: '2026-06-19T07:32:31+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.959
+                          activation_date: '2026-06-19T07:32:31+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 1
+                          activation_date: '2026-06-19T07:32:31+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1
+                          activation_date: '2026-06-19T07:32:31+02:00'
+                    - fuelstation_id: 5875
+                      fuelstation_code: IS323096
+                      fuelstation_name: SPILAMBERTO MODENESE
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.819
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.819
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.919
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.919
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.849
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.849
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.844
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.844
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.449
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.449
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 17
+                          product_name: GNL
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.419
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 17
+                          product_name: GNL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.419
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.899
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.899
+                          activation_date: '2026-06-18T17:03:38+02:00'
+                    - fuelstation_id: 5878
+                      fuelstation_code: IS323046
+                      fuelstation_name: SPILAMBERTO VIGNOLESE
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.819
+                          activation_date: '2026-06-18T17:51:41+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.819
+                          activation_date: '2026-06-18T17:51:41+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.919
+                          activation_date: '2026-06-18T17:51:41+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.919
+                          activation_date: '2026-06-18T17:51:41+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.849
+                          activation_date: '2026-06-18T17:51:41+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.849
+                          activation_date: '2026-06-18T17:51:41+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.734
+                          activation_date: '2026-06-18T17:51:41+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.734
+                          activation_date: '2026-06-18T17:51:41+02:00'
+                    - fuelstation_id: 5879
+                      fuelstation_code: IS323044
+                      fuelstation_name: VALSAMOGGIA
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.775
+                          activation_date: '2026-06-19T15:11:32+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.775
+                          activation_date: '2026-06-19T15:11:32+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.885
+                          activation_date: '2026-06-19T15:11:32+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.885
+                          activation_date: '2026-06-19T15:11:32+02:00'
+                    - fuelstation_id: 5889
+                      fuelstation_code: IS318051
+                      fuelstation_name: OCCHIOBELLO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.794
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.794
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.894
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.894
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.994
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.994
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.795
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.795
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.739
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.739
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.599
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 7
+                          product_name: Metano
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.599
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.889
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                        - product_id: 21
+                          product_name: HVO
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.889
+                          activation_date: '2026-06-18T19:57:40+02:00'
+                    - fuelstation_id: 5941
+                      fuelstation_code: IS323042
+                      fuelstation_name: GORO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.299
+                          activation_date: '2026-06-18T17:04:38+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.299
+                          activation_date: '2026-06-18T17:04:38+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.199
+                          activation_date: '2026-06-18T17:04:38+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.199
+                          activation_date: '2026-06-18T17:04:38+02:00'
+                    - fuelstation_id: 6212
+                      fuelstation_code: IS324049
+                      fuelstation_name: MONTEGROTTO TERME
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.865
+                          activation_date: '2026-06-18T19:00:51+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.785
+                          activation_date: '2026-06-18T19:00:51+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.965
+                          activation_date: '2026-06-18T19:00:51+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.885
+                          activation_date: '2026-06-18T19:00:51+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.979
+                          activation_date: '2026-06-18T19:00:51+02:00'
+                        - product_id: 4
+                          product_name: Gasolio Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.979
+                          activation_date: '2026-06-18T19:00:51+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 0.899
+                          activation_date: '2026-06-18T19:00:51+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.899
+                          activation_date: '2026-06-18T19:00:51+02:00'
+                    - fuelstation_id: 6627
+                      fuelstation_code: IS325129
+                      fuelstation_name: CAMPODARSEGO
+                      prices:
+                        - product_id: 1
+                          product_name: Verde
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.769
+                          activation_date: '2026-06-19T14:16:00+02:00'
+                        - product_id: 1
+                          product_name: Verde
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.769
+                          activation_date: '2026-06-19T14:16:00+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.859
+                          activation_date: '2026-06-19T14:16:00+02:00'
+                        - product_id: 2
+                          product_name: Diesel
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.859
+                          activation_date: '2026-06-19T14:16:00+02:00'
+                        - product_id: 3
+                          product_name: Benzina Spec.
+                          self: false
+                          self_desc: SERVITO
+                          price: 1
+                          activation_date: '2026-06-19T14:16:00+02:00'
+                        - product_id: 3
+                          product_name: Benzina Spec.
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1
+                          activation_date: '2026-06-19T14:16:00+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: false
+                          self_desc: SERVITO
+                          price: 1.099
+                          activation_date: '2026-06-19T14:16:00+02:00'
+                        - product_id: 5
+                          product_name: AdBlue
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 1.099
+                          activation_date: '2026-06-19T14:16:00+02:00'
+                items:
+                  type: object
+                  properties:
+                    fuelstation_id:
+                      type: integer
+                    fuelstation_code:
+                      type: string
+                    fuelstation_name:
+                      type: string
+                    prices:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          product_id:
+                            type: integer
+                          product_name:
+                            type: string
+                          self:
+                            type: boolean
+                          self_desc:
+                            type: string
+                          price:
+                            type:
+                              - number
+                          activation_date:
+                            type: string
+                            description: |
+                              date in local time. Not UTC
+              examples:
+                Example 1:
+                  value:
+                    - fuelstation_id: 0
+                      fuelstation_code: IS31...
+                      fuelstation_name: VOLVERA
+                      prices:
+                        - product_id: 6
+                          product_name: GPL
+                          self: true
+                          self_desc: FAI DA TE
+                          price: 0.695
+                          activation_date: '2026-06-19T10:22:29+02:00'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      operationId: get-export-suppliers-supplier_id-prices
+      tags:
+        - suppliers
+      description: 'Returns the current fuelstation prices for one or all fuelstations of a supplier (supplier_id). Optionally filtered by a specific fuelstation (fuelstation_id) and a reference date (from_date). For each product, the most recent active price is returned split by service mode (self-service and attended). If from_date is provided, only prices activated after that date are considered.'
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: from_date
+          description: only prices activated after that date are considered
+        - schema:
+            type: string
+          in: query
+          name: fuelstation_id
+          description: optionally filtered by a specific fuelstation
 components:
   schemas:
     sold:
@@ -1211,8 +3507,6 @@ components:
           refreshUrl: ''
           scopes: {}
   responses: {}
-tags:
-  - name: import export
 security:
   - develop: []
   - production: []
