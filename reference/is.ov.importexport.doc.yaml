@@ -2998,6 +2998,78 @@ paths:
           in: query
           name: fuelstation_id
           description: optionally filtered by a specific fuelstation
+  '/export/prices/{price_id}':
+    parameters:
+      - schema:
+          type: string
+        name: price_id
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    x-stoplight:
+                      id: yo0t12ap0nrpz
+                    description: 'Price identifier, same of the request'
+                  product_id:
+                    type: integer
+                    x-stoplight:
+                      id: xiw7fplg2qcug
+                    description: 'Product identifier related to the price '
+                  unit_price:
+                    type: number
+                    x-stoplight:
+                      id: ukq8bf2ij7naq
+                    description: Unit price related to the price. Decimal value with max 3 decimal digits
+                  status:
+                    type: integer
+                    x-stoplight:
+                      id: kuii2xb4zc5e4
+                    description: |-
+                      Represent the price status information.
+
+                      Legend (US):
+                      - "-1": Price to sent 
+                      - "1": Price scheduled on Overview
+                      - "2": Price received on fuel station PC
+                      - "3": Price scheduled on fuel station PC
+                      - "4": Price activated on fuel station 
+                      - "99": Price send error
+
+                      Legend (IT) (same of Overview Portal):
+                      - "-1": Da inviare
+                      - "1": Schedulato su Overview
+                      - "2": Ricevuto dal PC di stazione
+                      - "3": Schedulato sul PC di stazione
+                      - "4": Prezzo attivato sul Punto Vendita
+                      - "99": Errore Invio
+                  start_datetime:
+                    type: string
+                    x-stoplight:
+                      id: l3hydeknpa2f5
+                    description: Price start datetime in ISO8601 format
+        '400':
+          description: Bad Request
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      operationId: get-export-prices-price_id
+      x-stoplight:
+        id: mg8dgh4zp7cev
+      description: Returns the price information using the price identifier provided by path
 components:
   schemas:
     sold:
