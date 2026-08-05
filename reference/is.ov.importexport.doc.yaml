@@ -3070,6 +3070,88 @@ paths:
       x-stoplight:
         id: mg8dgh4zp7cev
       description: Returns the price information using the price identifier provided by path
+  /export/prices:
+    parameters: []
+    put:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Price identifier for entry saved\updated
+        '400':
+          description: Bad Request
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '409':
+          description: Conflict
+          content:
+            app:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    x-stoplight:
+                      id: 3fihoykvx87qo
+                    description: 'Price identifier, if > 0 represent the conflict price entry'
+        '500':
+          description: Internal Server Error
+      operationId: put-export-prices
+      description: |
+        Save the price information in order to schedule it on Overview and send to the fuel station PC.
+        If there is already an applied price, the API will check the difference with the new price, if it is greater than 30%, a conflict error will be return. This check could be skipped with force attribute equal to "true".
+        A price can't be edited if it is already sent to fuel station. So if the status is already >= 2, the API will return a conflict.
+      x-stoplight:
+        id: l4j3ys3qm9b2x
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - fuelstation_code
+                - product_id
+                - start_datetime
+                - unit_price
+              properties:
+                fuelstation_code:
+                  type: string
+                  x-stoplight:
+                    id: crvwuoaheywtv
+                  description: Fuel station code where the price should be sent
+                product_id:
+                  type: integer
+                  x-stoplight:
+                    id: nr8zt9qheicpi
+                  description: 'Product identifier related to the price '
+                start_datetime:
+                  type: string
+                  x-stoplight:
+                    id: 1t72uxnvpie55
+                  description: Price start datetime in ISO8601 format
+                unit_price:
+                  type: number
+                  x-stoplight:
+                    id: lxidrdaaery4w
+                  description: Unit price related to the price. Decimal value with max 3 decimal digits
+                force:
+                  type: boolean
+                  x-stoplight:
+                    id: acezu9jjlibh2
+                  description: |-
+                    Optional input.
+                    If false or omitted, the currently applied price is checked, and if the new price differs by more than 30% from the previous one, the API returns a conflict error. 
+                    If true, the current applied price check is skipped and the new price is sent without validation.
 components:
   schemas:
     sold:
