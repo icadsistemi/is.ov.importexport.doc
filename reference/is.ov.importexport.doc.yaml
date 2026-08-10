@@ -3007,7 +3007,6 @@ paths:
         required: true
     get:
       summary: Your GET endpoint
-      tags: []
       responses:
         '200':
           description: OK
@@ -3070,11 +3069,236 @@ paths:
       x-stoplight:
         id: mg8dgh4zp7cev
       description: Returns the price information using the price identifier provided by path
+      parameters: []
+      tags:
+        - prices
+  /export/prices/discounts:
+    parameters: []
+    get:
+      summary: Your GET endpoint
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                x-examples:
+                  Example 1:
+                    - product_id: 1
+                      product_name: VERDE
+                      unit_price: 1.819
+                      start_datetime: '2024-07-23T11:58:45+02:00'
+                      difference: 0
+                      discounts:
+                        - name: SCONTO1
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO2
+                          value: 0.07
+                          enabled: true
+                          unit_price: 1.749
+                        - name: SCONTO3
+                          value: 1.334
+                          enabled: false
+                          unit_price: 0.485
+                        - name: SCONTO4
+                          value: 1.445
+                          enabled: false
+                          unit_price: 0.374
+                        - name: SCONTO5
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO6
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO7
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO8
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                items:
+                  type: object
+                  properties:
+                    product_id:
+                      type: integer
+                    product_name:
+                      type: string
+                    unit_price:
+                      type: number
+                    start_datetime:
+                      type: string
+                    difference:
+                      type: integer
+                    discounts:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                          value:
+                            type: number
+                          enabled:
+                            type: boolean
+                          unit_price:
+                            type: number
+              examples:
+                Example 1:
+                  value:
+                    - product_id: 1
+                      product_name: VERDE
+                      unit_price: 1.819
+                      start_datetime: '2024-07-23T11:58:45+02:00'
+                      difference: 0
+                      discounts:
+                        - name: SCONTO1
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO2
+                          value: 0
+                          enabled: true
+                          unit_price: 1.749
+                        - name: SCONTO3
+                          value: 1.334
+                          enabled: false
+                          unit_price: 0.485
+                        - name: SCONTO4
+                          value: 1.445
+                          enabled: false
+                          unit_price: 0.374
+                        - name: SCONTO5
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO6
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO7
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO8
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+        '400':
+          description: Bad Request
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      operationId: get-export-prices-discounts
+      x-stoplight:
+        id: mg8dgh4zp7cev
+      description: Returns the price discounts information
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: fuelstation_code
+      tags:
+        - prices
+    put:
+      summary: ''
+      operationId: put-export-prices-discounts
+      responses:
+        '200':
+          description: OK
+      description: Save price discounts for product type.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fuelstation_code:
+                  type: string
+                product_discounts:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      product_id:
+                        type: integer
+                      difference:
+                        type: integer
+                      discounts:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            value:
+                              type: number
+                            enabled:
+                              type: boolean
+                            order:
+                              type: integer
+              x-examples:
+                Example 1:
+                  fuelstation_code: IS320047
+                  product_discounts:
+                    - product_id: 1
+                      difference: 0
+                      discounts:
+                        - name: Sconto3
+                          value: 1.334
+                          enabled: false
+                        - name: Sconto4
+                          order: 0
+                          value: 1.445
+                          enabled: false
+                    - product_id: 2
+                      difference: 0
+                      discounts:
+                        - name: Sconto3
+                          value: 1.333
+                          enabled: true
+                        - name: Sconto4
+                          value: 1.444
+                          enabled: true
+            examples:
+              Example 1:
+                value:
+                  fuelstation_code: IS320XXX
+                  product_discounts:
+                    - product_id: 1
+                      difference: 0
+                      discounts:
+                        - name: Sconto3
+                          value: 1.334
+                          enabled: false
+                        - name: Sconto4
+                          order: 0
+                          value: 1.445
+                          enabled: false
+                    - product_id: 2
+                      difference: 0
+                      discounts:
+                        - name: Sconto3
+                          value: 1.333
+                          enabled: true
+                        - name: Sconto4
+                          value: 1.444
+                          enabled: true
   /export/prices:
     parameters: []
     put:
       summary: Your GET endpoint
-      tags: []
+      tags:
+        - prices
       responses:
         '200':
           description: OK
