@@ -2998,7 +2998,7 @@ paths:
           in: query
           name: fuelstation_id
           description: optionally filtered by a specific fuelstation
-  '/export/prices/{price_id}':
+  '/prices/{price_id}':
     parameters:
       - schema:
           type: string
@@ -3081,7 +3081,7 @@ paths:
       parameters: []
       tags:
         - prices
-  /export/prices/discounts:
+  /prices/discounts:
     parameters: []
     get:
       summary: Get prices discounts
@@ -3324,7 +3324,7 @@ paths:
                           enabled: true
       tags:
         - prices
-  /export/prices:
+  /prices:
     parameters: []
     put:
       summary: Save prices
