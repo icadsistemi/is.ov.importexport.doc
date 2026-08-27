@@ -2998,6 +2998,384 @@ paths:
           in: query
           name: fuelstation_id
           description: optionally filtered by a specific fuelstation
+  '/export/prices/{price_id}':
+    parameters:
+      - schema:
+          type: string
+        name: price_id
+        in: path
+        required: true
+    get:
+      summary: Your GET endpoint
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    x-stoplight:
+                      id: yo0t12ap0nrpz
+                    description: 'Price identifier, same of the request'
+                  product_id:
+                    type: integer
+                    x-stoplight:
+                      id: xiw7fplg2qcug
+                    description: 'Product identifier related to the price '
+                  unit_price:
+                    type: number
+                    x-stoplight:
+                      id: ukq8bf2ij7naq
+                    description: Unit price related to the price. Decimal value with max 3 decimal digits
+                  status:
+                    type: integer
+                    x-stoplight:
+                      id: kuii2xb4zc5e4
+                    description: |-
+                      Represent the price status information.
+
+                      Legend (US):
+                      - "-1": Price to sent 
+                      - "1": Price scheduled on Overview
+                      - "2": Price received on fuel station PC
+                      - "3": Price scheduled on fuel station PC
+                      - "4": Price activated on fuel station 
+                      - "99": Price send error
+
+                      Legend (IT) (same of Overview Portal):
+                      - "-1": Da inviare
+                      - "1": Schedulato su Overview
+                      - "2": Ricevuto dal PC di stazione
+                      - "3": Schedulato sul PC di stazione
+                      - "4": Prezzo attivato sul Punto Vendita
+                      - "99": Errore Invio
+                  start_datetime:
+                    type: string
+                    x-stoplight:
+                      id: l3hydeknpa2f5
+                    description: Price start datetime in ISO8601 format
+        '400':
+          description: Bad Request
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      operationId: get-export-prices-price_id
+      x-stoplight:
+        id: mg8dgh4zp7cev
+      description: Returns the price information using the price identifier provided by path
+      parameters: []
+      tags:
+        - prices
+  /export/prices/discounts:
+    parameters: []
+    get:
+      summary: Your GET endpoint
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                x-examples:
+                  Example 1:
+                    - product_id: 1
+                      product_name: VERDE
+                      unit_price: 1.819
+                      start_datetime: '2024-07-23T11:58:45+02:00'
+                      difference: 0
+                      discounts:
+                        - name: SCONTO1
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO2
+                          value: 0.07
+                          enabled: true
+                          unit_price: 1.749
+                        - name: SCONTO3
+                          value: 1.334
+                          enabled: false
+                          unit_price: 0.485
+                        - name: SCONTO4
+                          value: 1.445
+                          enabled: false
+                          unit_price: 0.374
+                        - name: SCONTO5
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO6
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO7
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO8
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                items:
+                  type: object
+                  properties:
+                    product_id:
+                      type: integer
+                    product_name:
+                      type: string
+                    unit_price:
+                      type: number
+                    start_datetime:
+                      type: string
+                    difference:
+                      type: integer
+                    discounts:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                          value:
+                            type: number
+                          enabled:
+                            type: boolean
+                          unit_price:
+                            type: number
+              examples:
+                Example 1:
+                  value:
+                    - product_id: 1
+                      product_name: VERDE
+                      unit_price: 1.819
+                      start_datetime: '2024-07-23T11:58:45+02:00'
+                      difference: 0
+                      discounts:
+                        - name: SCONTO1
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO2
+                          value: 0
+                          enabled: true
+                          unit_price: 1.749
+                        - name: SCONTO3
+                          value: 1.334
+                          enabled: false
+                          unit_price: 0.485
+                        - name: SCONTO4
+                          value: 1.445
+                          enabled: false
+                          unit_price: 0.374
+                        - name: SCONTO5
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO6
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO7
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+                        - name: SCONTO8
+                          value: 0
+                          enabled: true
+                          unit_price: 1.819
+        '400':
+          description: Bad Request
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+      operationId: get-export-prices-discounts
+      x-stoplight:
+        id: mg8dgh4zp7cev
+      description: Returns the price discounts information
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: fuelstation_code
+      tags:
+        - prices
+    put:
+      summary: ''
+      operationId: put-export-prices-discounts
+      responses:
+        '200':
+          description: OK
+      description: Save price discounts for product type.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fuelstation_code:
+                  type: string
+                product_discounts:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      product_id:
+                        type: integer
+                      difference:
+                        type: integer
+                      discounts:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                            value:
+                              type: number
+                            enabled:
+                              type: boolean
+                            order:
+                              type: integer
+              x-examples:
+                Example 1:
+                  fuelstation_code: IS320047
+                  product_discounts:
+                    - product_id: 1
+                      difference: 0
+                      discounts:
+                        - name: Sconto3
+                          value: 1.334
+                          enabled: false
+                        - name: Sconto4
+                          order: 0
+                          value: 1.445
+                          enabled: false
+                    - product_id: 2
+                      difference: 0
+                      discounts:
+                        - name: Sconto3
+                          value: 1.333
+                          enabled: true
+                        - name: Sconto4
+                          value: 1.444
+                          enabled: true
+            examples:
+              Example 1:
+                value:
+                  fuelstation_code: IS320XXX
+                  product_discounts:
+                    - product_id: 1
+                      difference: 0
+                      discounts:
+                        - name: Sconto3
+                          value: 1.334
+                          enabled: false
+                        - name: Sconto4
+                          order: 0
+                          value: 1.445
+                          enabled: false
+                    - product_id: 2
+                      difference: 0
+                      discounts:
+                        - name: Sconto3
+                          value: 1.333
+                          enabled: true
+                        - name: Sconto4
+                          value: 1.444
+                          enabled: true
+  /export/prices:
+    parameters: []
+    put:
+      summary: Your GET endpoint
+      tags:
+        - prices
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    description: Price identifier for entry saved\updated
+        '400':
+          description: Bad Request
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+        '409':
+          description: Conflict
+          content:
+            app:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    x-stoplight:
+                      id: 3fihoykvx87qo
+                    description: 'Price identifier, if > 0 represent the conflict price entry'
+        '500':
+          description: Internal Server Error
+      operationId: put-export-prices
+      description: |
+        Save the price information in order to schedule it on Overview and send to the fuel station PC.
+        If there is already an applied price, the API will check the difference with the new price, if it is greater than 30%, a conflict error will be return. This check could be skipped with force attribute equal to "true".
+        A price can't be edited if it is already sent to fuel station. So if the status is already >= 2, the API will return a conflict.
+      x-stoplight:
+        id: l4j3ys3qm9b2x
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - fuelstation_code
+                - product_id
+                - start_datetime
+                - unit_price
+              properties:
+                fuelstation_code:
+                  type: string
+                  x-stoplight:
+                    id: crvwuoaheywtv
+                  description: Fuel station code where the price should be sent
+                product_id:
+                  type: integer
+                  x-stoplight:
+                    id: nr8zt9qheicpi
+                  description: 'Product identifier related to the price '
+                start_datetime:
+                  type: string
+                  x-stoplight:
+                    id: 1t72uxnvpie55
+                  description: Price start datetime in ISO8601 format
+                unit_price:
+                  type: number
+                  x-stoplight:
+                    id: lxidrdaaery4w
+                  description: Unit price related to the price. Decimal value with max 3 decimal digits
+                force:
+                  type: boolean
+                  x-stoplight:
+                    id: acezu9jjlibh2
+                  description: |-
+                    Optional input.
+                    If false or omitted, the currently applied price is checked, and if the new price differs by more than 30% from the previous one, the API returns a conflict error. 
+                    If true, the current applied price check is skipped and the new price is sent without validation.
 components:
   schemas:
     sold:
