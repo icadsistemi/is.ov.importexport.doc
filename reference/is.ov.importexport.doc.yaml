@@ -3293,6 +3293,8 @@ paths:
                         - name: Sconto4
                           value: 1.444
                           enabled: true
+      tags:
+        - prices
   /export/prices:
     parameters: []
     put:
