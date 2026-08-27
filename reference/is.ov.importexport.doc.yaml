@@ -3005,8 +3005,9 @@ paths:
         name: price_id
         in: path
         required: true
+        description: price identifier
     get:
-      summary: Your GET endpoint
+      summary: Get prices by price id
       responses:
         '200':
           description: OK
@@ -3057,6 +3058,14 @@ paths:
                     x-stoplight:
                       id: l3hydeknpa2f5
                     description: Price start datetime in ISO8601 format
+              examples:
+                Example 1:
+                  value:
+                    id: 0
+                    product_id: 0
+                    unit_price: 0
+                    status: 0
+                    start_datetime: string
         '400':
           description: Bad Request
         '403':
@@ -3075,7 +3084,7 @@ paths:
   /export/prices/discounts:
     parameters: []
     get:
-      summary: Your GET endpoint
+      summary: Get prices discounts
       responses:
         '200':
           description: OK
@@ -3128,14 +3137,19 @@ paths:
                   properties:
                     product_id:
                       type: integer
+                      description: The product identifier from enum table on the top documentation
                     product_name:
                       type: string
+                      description: The product name from enum table on the top documentation
                     unit_price:
                       type: number
+                      description: Unit price related to the price. Decimal value with max 3 decimal digits
                     start_datetime:
                       type: string
+                      description: 'format start time: ISO-8601'
                     difference:
                       type: integer
+                      description: the amount entered in the Difference field is added to the base price of the Product
                     discounts:
                       type: array
                       items:
@@ -3143,12 +3157,16 @@ paths:
                         properties:
                           name:
                             type: string
+                            description: discount name
                           value:
                             type: number
+                            description: discount value
                           enabled:
                             type: boolean
+                            description: The field indicates whether the discount is enabled or not
                           unit_price:
                             type: number
+                            description: Unit price related to the price discount. Decimal value with max 3 decimal digits
               examples:
                 Example 1:
                   value:
@@ -3207,10 +3225,11 @@ paths:
             type: string
           in: query
           name: fuelstation_code
+          description: IS code assigned to the fuel station
       tags:
         - prices
     put:
-      summary: ''
+      summary: Put discounts prices
       operationId: put-export-prices-discounts
       responses:
         '200':
@@ -3221,31 +3240,6 @@ paths:
           application/json:
             schema:
               type: object
-              properties:
-                fuelstation_code:
-                  type: string
-                product_discounts:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      product_id:
-                        type: integer
-                      difference:
-                        type: integer
-                      discounts:
-                        type: array
-                        items:
-                          type: object
-                          properties:
-                            name:
-                              type: string
-                            value:
-                              type: number
-                            enabled:
-                              type: boolean
-                            order:
-                              type: integer
               x-examples:
                 Example 1:
                   fuelstation_code: IS320047
@@ -3269,6 +3263,41 @@ paths:
                         - name: Sconto4
                           value: 1.444
                           enabled: true
+              properties:
+                fuelstation_code:
+                  type: string
+                  description: IS code assigned to the fuel station
+                product_discounts:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      product_id:
+                        type: integer
+                        description: The product identifier from enum table on the top documentation
+                      difference:
+                        type: integer
+                        description: the amount entered in the Difference field is added to the base price of the Product
+                      discounts:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              description: discount name
+                            value:
+                              type: number
+                              description: discount value
+                            enabled:
+                              type: boolean
+                              description: The field indicates whether the discount is enabled or not
+                    required:
+                      - product_id
+                      - discounts
+              required:
+                - fuelstation_code
+                - product_discounts
             examples:
               Example 1:
                 value:
@@ -3298,7 +3327,7 @@ paths:
   /export/prices:
     parameters: []
     put:
-      summary: Your GET endpoint
+      summary: Save prices
       tags:
         - prices
       responses:
@@ -3344,40 +3373,32 @@ paths:
           application/json:
             schema:
               type: object
-              required:
-                - fuelstation_code
-                - product_id
-                - start_datetime
-                - unit_price
+              x-examples:
+                Example 1:
+                  fuelstation_code: IS3XXX
+                  product_id: 1
+                  start_datetime: '2026-08-05T11:58:00+02:00'
+                  unit_price: 1.9
               properties:
                 fuelstation_code:
                   type: string
-                  x-stoplight:
-                    id: crvwuoaheywtv
-                  description: Fuel station code where the price should be sent
+                  description: IS code assigned to the fuel station
                 product_id:
                   type: integer
-                  x-stoplight:
-                    id: nr8zt9qheicpi
-                  description: 'Product identifier related to the price '
+                  description: The product identifier from enum table on the top documentation
                 start_datetime:
                   type: string
-                  x-stoplight:
-                    id: 1t72uxnvpie55
-                  description: Price start datetime in ISO8601 format
+                  description: 'format start time: ISO-8601'
                 unit_price:
                   type: number
-                  x-stoplight:
-                    id: lxidrdaaery4w
                   description: Unit price related to the price. Decimal value with max 3 decimal digits
-                force:
-                  type: boolean
-                  x-stoplight:
-                    id: acezu9jjlibh2
-                  description: |-
-                    Optional input.
-                    If false or omitted, the currently applied price is checked, and if the new price differs by more than 30% from the previous one, the API returns a conflict error. 
-                    If true, the current applied price check is skipped and the new price is sent without validation.
+            examples:
+              Example 1:
+                value:
+                  fuelstation_code: string
+                  product_id: 0
+                  start_datetime: string
+                  unit_price: 0
 components:
   schemas:
     sold:
